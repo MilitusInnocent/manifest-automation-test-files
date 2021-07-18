@@ -1,0 +1,484 @@
+{
+	"info": {
+		"_postman_id": "3aad649b-0ca1-4424-b0e3-c9aa17cf2aab",
+		"name": "Inbox App API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Messages",
+			"item": [
+				{
+					"name": "Get All Messages",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Im1vZHVsZV9pZCI6IjU0NCIsInVybCI6Imh0dHBzOi8vbWFuaWZlc3QtaW5ib3gtcmVhY3QuaGVyb2t1YXBwLmNvbSIsInBlcm1pc3Npb24iOiJjcmVhdGUsIHJlYWQsIHVwZGF0ZSwgZGVsZXRlLCByZWFkYWxsLCBtb2RpZnlhbGwiLCJ1c2VyX2RldGFpbCI6eyJhY2NvdW50X2lkIjoiNjE3ZTM4YmUtNDlkMS00YTY2LWEwZjYtNzA0NzU2MzgzODEyIiwidXNlcl9uYW1lIjoic2FtdWVsIiwibmFtZSI6Ik1yc2FtIHNhbW1pZSIsImVtYWlsIjoibGF5emllMmVAZ21haWwuY29tIn0sIm1vZHVsZV9uYW1lIjoiSW5ib3gtcmVhY3QtYXBwIiwiY3VycmVudF9idXNpbmVzcyI6IlJlYWN0IERlbW8iLCJidXNpbmVzc2VzIjpbeyJpZCI6NjQsIm5hbWUiOiJQcmlkaWN0LWJ1c2luZXNzIn0seyJpZCI6NjgsIm5hbWUiOiJOZXctQnVzaW5lc3MgSW5jIn0seyJpZCI6MTkwLCJuYW1lIjoiUmVhY3QgRGVtbyJ9XSwicHJvZmlsZSI6Im1lbWJlciIsInJvbGVfZGV0YWlscyI6eyJyb2xlX2xldmVsIjo0LCJyb2xlX25hbWUiOiJNYW5hZ2VyIn0sImRlcGFydG1lbnRfbmFtZSI6ImZpbmFuY2UifSwiaWF0IjoxNjE3Mjg1NzY0LCJleHAiOjE2MTcyODkzNjR9.BRGfkwzIH1vBAFEnksCnWlyU3JYXGCN7URIVFSCzokc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://manifest-inbox-app.herokuapp.com/messages",
+							"protocol": "https",
+							"host": [
+								"manifest-inbox-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"id\": 30\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://manifest-inbox-app.herokuapp.com/message/get",
+							"protocol": "https",
+							"host": [
+								"manifest-inbox-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"message",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send a Message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subject\": \"hello world1\",\r\n    \"body\": \"message body\",\r\n    \"receiverId\": \"617e38be-49d1-4a66-a0f6-704756383812\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://manifest-inbox-app.herokuapp.com/message/create",
+							"protocol": "https",
+							"host": [
+								"manifest-inbox-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"message",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Multiple Messages",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Im1vZHVsZV9pZCI6IjU0NCIsInVybCI6Imh0dHBzOi8vbWFuaWZlc3QtaW5ib3gtcmVhY3QuaGVyb2t1YXBwLmNvbSIsInBlcm1pc3Npb24iOiJjcmVhdGUsIHJlYWQsIHVwZGF0ZSwgZGVsZXRlLCByZWFkYWxsLCBtb2RpZnlhbGwiLCJ1c2VyX2RldGFpbCI6eyJhY2NvdW50X2lkIjoiNjE3ZTM4YmUtNDlkMS00YTY2LWEwZjYtNzA0NzU2MzgzODEyIiwidXNlcl9uYW1lIjoic2FtdWVsIiwibmFtZSI6Ik1yc2FtIHNhbW1pZSIsImVtYWlsIjoibGF5emllMmVAZ21haWwuY29tIn0sIm1vZHVsZV9uYW1lIjoiSW5ib3gtcmVhY3QtYXBwIiwiY3VycmVudF9idXNpbmVzcyI6IlJlYWN0IERlbW8iLCJidXNpbmVzc2VzIjpbeyJpZCI6NjQsIm5hbWUiOiJQcmlkaWN0LWJ1c2luZXNzIn0seyJpZCI6NjgsIm5hbWUiOiJOZXctQnVzaW5lc3MgSW5jIn0seyJpZCI6MTkwLCJuYW1lIjoiUmVhY3QgRGVtbyJ9XSwicHJvZmlsZSI6Im1lbWJlciIsInJvbGVfZGV0YWlscyI6eyJyb2xlX2xldmVsIjo0LCJyb2xlX25hbWUiOiJNYW5hZ2VyIn0sImRlcGFydG1lbnRfbmFtZSI6ImZpbmFuY2UifSwiaWF0IjoxNjE3Mjk2Nzk2LCJleHAiOjE2MTczMDAzOTZ9.V0WwUFdH_r9xWv9L2m8cMcbVhm5IEYZK7xU77tCHiMM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"subject\": \"hello world\",\r\n    \"body\": \"message body\",\r\n    \"receivers\": [\"617e38be-49d1-4a66-a0f6-704756383812\", \"7b544312-82d1-482d-982b-370f9d3e2fdf\", \"7b544312-82d1-482d-982b-370f9d3e2fdf\"]\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://manifest-inbox-app.herokuapp.com/message/createMultiple",
+							"protocol": "https",
+							"host": [
+								"manifest-inbox-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"message",
+								"createMultiple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Draft Message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"body\": \"i want to leave this message to send later\",\r\n    \"subject\": \"not sure i want to send this yet\",\r\n    \"receiverId\": \"\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://manifest-inbox-app.herokuapp.com/message/draft/create",
+							"protocol": "https",
+							"host": [
+								"manifest-inbox-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"message",
+								"draft",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 46\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://manifest-inbox-app.herokuapp.com/message/delete",
+							"protocol": "https",
+							"host": [
+								"manifest-inbox-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"message",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Multiple Messages",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ids\": [ 38, 39, 42]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://manifest-inbox-app.herokuapp.com/message/deleteMultiple",
+							"protocol": "https",
+							"host": [
+								"manifest-inbox-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"message",
+								"deleteMultiple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Inbox Messages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://manifest-inbox-app.herokuapp.com/messages/inbox",
+							"protocol": "https",
+							"host": [
+								"manifest-inbox-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"messages",
+								"inbox"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Sent Messages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://manifest-inbox-app.herokuapp.com/messages/sent",
+							"protocol": "https",
+							"host": [
+								"manifest-inbox-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"messages",
+								"sent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Trash Messages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://manifest-inbox-app.herokuapp.com/messages/trash",
+							"protocol": "https",
+							"host": [
+								"manifest-inbox-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"messages",
+								"trash"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Drafts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://manifest-inbox-app.herokuapp.com/messages/draft/all",
+							"protocol": "https",
+							"host": [
+								"manifest-inbox-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"messages",
+								"draft",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reply Message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"body\": \"I am replying to your initial business proposal\",\r\n    \"id\": 46\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://manifest-inbox-app.herokuapp.com/message/reply",
+							"protocol": "https",
+							"host": [
+								"manifest-inbox-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"message",
+								"reply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mark Message as Read",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"id\": 46\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://manifest-inbox-app.herokuapp.com/message/status/update",
+							"protocol": "https",
+							"host": [
+								"manifest-inbox-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"message",
+								"status",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://manifest-inbox-app.herokuapp.com/users",
+							"protocol": "https",
+							"host": [
+								"manifest-inbox-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Im1vZHVsZV9pZCI6IjU0NCIsInVybCI6Imh0dHBzOi8vbWFuaWZlc3QtaW5ib3gtcmVhY3QuaGVyb2t1YXBwLmNvbSIsInBlcm1pc3Npb24iOiJjcmVhdGUsIHJlYWQsIHVwZGF0ZSwgZGVsZXRlLCByZWFkYWxsLCBtb2RpZnlhbGwiLCJ1c2VyX2RldGFpbCI6eyJhY2NvdW50X2lkIjoiNjE3ZTM4YmUtNDlkMS00YTY2LWEwZjYtNzA0NzU2MzgzODEyIiwidXNlcl9uYW1lIjoic2FtdWVsIiwibmFtZSI6Ik1yc2FtIHNhbW1pZSIsImVtYWlsIjoibGF5emllMmVAZ21haWwuY29tIn0sIm1vZHVsZV9uYW1lIjoiSW5ib3gtcmVhY3QtYXBwIiwiY3VycmVudF9idXNpbmVzcyI6IlJlYWN0IERlbW8iLCJidXNpbmVzc2VzIjpbeyJpZCI6NjQsIm5hbWUiOiJQcmlkaWN0LWJ1c2luZXNzIn0seyJpZCI6NjgsIm5hbWUiOiJOZXctQnVzaW5lc3MgSW5jIn0seyJpZCI6MTkwLCJuYW1lIjoiUmVhY3QgRGVtbyJ9XSwicHJvZmlsZSI6Im1lbWJlciIsInJvbGVfZGV0YWlscyI6eyJyb2xlX2xldmVsIjo0LCJyb2xlX25hbWUiOiJNYW5hZ2VyIn0sImRlcGFydG1lbnRfbmFtZSI6ImZpbmFuY2UifSwiaWF0IjoxNjE3Mjg1NzY0LCJleHAiOjE2MTcyODkzNjR9.BRGfkwzIH1vBAFEnksCnWlyU3JYXGCN7URIVFSCzokc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n\r\n{\r\n    \"public_key\": \"rJqbI7JgyCklbimFVgRig4SEUmyHD3\",\r\n    \"private_key\": \"U2FsdGVkX19B9J/DsCcq7aU5ko0s++QUlPLp/CDXxsPYck87D35OluI6DCTyPjHa\",\r\n    \"module_id\": \"544\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://manifest-inbox-app.herokuapp.com/login",
+					"protocol": "https",
+					"host": [
+						"manifest-inbox-app",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Im1vZHVsZV9pZCI6IjU0NCIsInVybCI6Imh0dHBzOi8vbWFuaWZlc3QtaW5ib3gtcmVhY3QuaGVyb2t1YXBwLmNvbSIsInBlcm1pc3Npb24iOiJjcmVhdGUsIHJlYWQsIHVwZGF0ZSwgZGVsZXRlLCByZWFkYWxsLCBtb2RpZnlhbGwiLCJ1c2VyX2RldGFpbCI6eyJhY2NvdW50X2lkIjoiNjE3ZTM4YmUtNDlkMS00YTY2LWEwZjYtNzA0NzU2MzgzODEyIiwidXNlcl9uYW1lIjoic2FtdWVsIiwibmFtZSI6Ik1yc2FtIHNhbW1pZSIsImVtYWlsIjoibGF5emllMmVAZ21haWwuY29tIn0sIm1vZHVsZV9uYW1lIjoiSW5ib3gtcmVhY3QtYXBwIiwiY3VycmVudF9idXNpbmVzcyI6IlJlYWN0IERlbW8iLCJidXNpbmVzc2VzIjpbeyJpZCI6NjQsIm5hbWUiOiJQcmlkaWN0LWJ1c2luZXNzIn0seyJpZCI6NjgsIm5hbWUiOiJOZXctQnVzaW5lc3MgSW5jIn0seyJpZCI6MTkwLCJuYW1lIjoiUmVhY3QgRGVtbyJ9XSwicHJvZmlsZSI6Im1lbWJlciIsInJvbGVfZGV0YWlscyI6eyJyb2xlX2xldmVsIjo0LCJyb2xlX25hbWUiOiJNYW5hZ2VyIn0sImRlcGFydG1lbnRfbmFtZSI6ImZpbmFuY2UifSwiaWF0IjoxNjIyMjIyMTk3LCJleHAiOjE2MjIyMjU3OTd9.AuNMOJ3pyhsbzG7jUfumK1cdZBh8O17zF2Ezbse770A",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});"
+				]
+			}
+		}
+	]
+}

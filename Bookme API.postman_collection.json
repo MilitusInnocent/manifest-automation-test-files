@@ -1,0 +1,1725 @@
+{
+	"info": {
+		"_postman_id": "cde95225-7f6d-4618-87d1-696d8454037c",
+		"name": "Bookme API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Services",
+			"item": [
+				{
+					"name": "POST SERVICES",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Im1vZHVsZV9pZCI6IjM4MyIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6MzAwMCIsInBlcm1pc3Npb24iOiJjcmVhdGUsIHJlYWQsIHVwZGF0ZSwgZGVsZXRlLCByZWFkYWxsLCBtb2RpZnlhbGwiLCJ1c2VyX2RldGFpbCI6eyJhY2NvdW50X2lkIjoiNGExYWM1NmYtNTU1Yi00YmQ5LTg2MGEtNWY3NTBmOWVkMWViIiwidXNlcl9uYW1lIjoidG9iaWxhc2luZGUiLCJuYW1lIjoiT2xhc2luZGUgQW50aG9ueSIsImVtYWlsIjoidG9iaWxhc2luZGUyMDEyQHlhaG9vLmNvbSJ9LCJtb2R1bGVfbmFtZSI6IlRvbnlEYXNoIiwiY3VycmVudF9idXNpbmVzcyI6IkNhc2UgTWFuYWdlciIsImJ1c2luZXNzZXMiOlt7ImlkIjo0MSwibmFtZSI6IlRvYmlsYXNpbmRlIn0seyJpZCI6NjcsIm5hbWUiOiJDb21wYW55IEFCQyJ9LHsiaWQiOjQ4LCJuYW1lIjoiQ2FzZSBNYW5hZ2VyIn0seyJpZCI6ODYsIm5hbWUiOiJNaWNyb1NvbHV0aW9ucyBJbmMuIn0seyJpZCI6NDIsIm5hbWUiOiJUZWFtIFRvbnkifV0sInByb2ZpbGUiOiJTeXN0ZW0gQWRtaW4iLCJyb2xlX2RldGFpbHMiOnsicm9sZV9sZXZlbCI6Miwicm9sZV9uYW1lIjoiVlAifSwiZGVwYXJ0bWVudF9uYW1lIjoiSFIifSwiaWF0IjoxNjE2NDI2MjQ2LCJleHAiOjE2MTcwMzEwNDZ9.FeDz0EaG3Jpm1_lUib9j1iL1lB8Nm0Nbhc3VXiKj_nQ ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"haily\",\r\n    \"duration_in_min\": 20,\r\n    \"charge\": 400,\r\n    \"description\": \"come and cut your head, yeah, your head\",\r\n    \"category_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/services",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST  Create Multiple Services",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"services\":[\r\n        {\r\n        \"name\": \"hailey\",\r\n        \"duration_in_min\": 30,\r\n        \"charge\": 500,\r\n        \"description\": \"come and cut your head, yeah, your head\",\r\n        \"category_id\": 1\r\n    },{\r\n        \"name\": \"hair dessing1\",\r\n        \"duration_in_min\": 60,\r\n        \"charge\": 500,\r\n        \"description\": \"come and plait your head, yeah, your head\",\r\n        \"category_id\": 1\r\n    }\r\n]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/services/createMultipleServices ",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"services",
+								"createMultipleServices "
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Get All Services",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/services",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Update a Service",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\",\r\n    \"name\": \"barbing\",\r\n    \"duration_in_min\": 30,\r\n    \"charge\": 500,\r\n    \"description\": \"come and cut your head, yeah, your head\",\r\n    \"category_id\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/services/update",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"services",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Service Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\"id\": \"1\"}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/services/1",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"services",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Service Status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 6,\r\n    \"name\": \"barbings\",\r\n    \"duration_in_min\": 30,\r\n    \"charge\": 600,\r\n    \"category\": \"politics\",\r\n    \"category_id\": \"1\",\r\n    \"status\": \"active\",\r\n    \"description\": \"updated\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/services",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"services"
+							],
+							"query": [
+								{
+									"key": "description",
+									"value": "updated successfully",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Service API",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\"id\": \"4\"}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/services/9",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"services",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Services Status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ids\": [1, 2],\r\n    \"status\": \"inactive\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/services/updateStatusForServices",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"services",
+								"updateStatusForServices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Multiple Services",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"ids\": [\"5\", \"6\"]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/services/deleteServices",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"services",
+								"deleteServices"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Service Location",
+			"item": [
+				{
+					"name": "Get Service Locations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/servicelocations",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"servicelocations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Service Location",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"staff_id\": \"4a1ac56f-555b-4bd9-860a-5f750f9ed1eb\",\r\n    \"location_id\": \"35\",\r\n    \"service_id\": \"2\"\r\n}\r\n\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/servicelocations",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"servicelocations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Service Location Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\"id\": \"2\"}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/servicelocations/getDetail",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"servicelocations",
+								"getDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Multiple Service Location Status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"id\": \"1\",\r\n    \"status\": \"inactive\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/servicelocations/updateStatus",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"servicelocations",
+								"updateStatus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Service Locations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\",\r\n    \"staff_id\": \"4a1ac56f-555b-4bd9-860a-5f750f9ed1eb\",\r\n    \"location_id\": \"1\",\r\n    \"service_id\": \"1\",\r\n    \"status\": \"active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/servicelocations/update?status=active",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"servicelocations",
+								"update"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "active"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Service Location",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\"id\": \"6\"}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/servicelocations/5",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"servicelocations",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Multiple Service Locations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"ids\": [2,3]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/servicelocations/deleteServiceLocations",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"servicelocations",
+								"deleteServiceLocations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Get Carts API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/carts",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"carts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cart Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\"id\": \"4\"}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/carts/1",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"carts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cart Status API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"id\": \"4\",\r\n    \"status\": \"pending\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/carts/updateStatus",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"carts",
+								"updateStatus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Payment Status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\",\r\n    \"reference\": \"fersdihkj\",\r\n    \"payment_type\": \"paystack\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/carts/updatePaymentStatus",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"carts",
+								"updatePaymentStatus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\"id\": \"4\"}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/carts/delete",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"carts",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Multiple Cart Status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ids\": [1, 3],\r\n    \"status\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/carts/updateStatusForCarts",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"carts",
+								"updateStatusForCarts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bookings",
+			"item": [
+				{
+					"name": "Create Booking API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"staff_id\": \"4a1ac56f-555b-4bd9-860a-5f750f9ed1eb\",\r\n    \"location_id\": \"12\",\r\n    \"service_id\": \"2\",\r\n    \"date\": \"2020-10-10\",\r\n    \"start_time\": \"12:00\",\r\n    \"end_time\": \"14:25\",\r\n    \"customer_id\": \"582c3a52-e36d-4ce2-aa37-0ccdfffcce3f\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/bookings",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Bookings API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/bookings",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bookings with Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/bookings_details",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"bookings_details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Service Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/bookings/1",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"bookings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Booking Service Status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"id\": \"7\",\r\n    \"status\": \"pending\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/bookings/updateStatus",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"bookings",
+								"updateStatus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Booking Service",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\"id\": \"7\"}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/bookings/7",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"bookings",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Multiple Booking Statuses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Timesheet",
+			"item": [
+				{
+					"name": "Create Timesheet API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"staff_id\": \"de145622-86c2-4a22-9bed-8fd3969a080c\",\r\n    \"date\": \"2013-10-11\",\r\n    \"start_time\": \"12:00\",\r\n    \"end_time\": \"12:30\",\r\n    \"reason\": \"sick leave\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/timesheets/create",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"timesheets",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Timesheets API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/timesheets/get",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"timesheets",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Timesheet Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\"id\": \"10\"}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/timeSheets/getDetail",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"timeSheets",
+								"getDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Timesheet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Im1vZHVsZV9pZCI6IjM4MyIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6MzAwMCIsInBlcm1pc3Npb24iOiJjcmVhdGUsIHJlYWQsIHVwZGF0ZSwgZGVsZXRlLCByZWFkYWxsLCBtb2RpZnlhbGwiLCJ1c2VyX2RldGFpbCI6eyJhY2NvdW50X2lkIjoiNGExYWM1NmYtNTU1Yi00YmQ5LTg2MGEtNWY3NTBmOWVkMWViIiwidXNlcl9uYW1lIjoidG9iaWxhc2luZGUiLCJuYW1lIjoiT2xhc2luZGUgQW50aG9ueSIsImVtYWlsIjoidG9iaWxhc2luZGUyMDEyQHlhaG9vLmNvbSJ9LCJtb2R1bGVfbmFtZSI6IlRvbnlEYXNoIiwiY3VycmVudF9idXNpbmVzcyI6IkNhc2UgTWFuYWdlciIsImJ1c2luZXNzZXMiOlt7ImlkIjo0MSwibmFtZSI6IlRvYmlsYXNpbmRlIn0seyJpZCI6NjcsIm5hbWUiOiJDb21wYW55IEFCQyJ9LHsiaWQiOjQ4LCJuYW1lIjoiQ2FzZSBNYW5hZ2VyIn0seyJpZCI6ODYsIm5hbWUiOiJNaWNyb1NvbHV0aW9ucyBJbmMuIn0seyJpZCI6NDIsIm5hbWUiOiJUZWFtIFRvbnkifV0sInByb2ZpbGUiOiJTeXN0ZW0gQWRtaW4iLCJyb2xlX2RldGFpbHMiOnsicm9sZV9sZXZlbCI6Miwicm9sZV9uYW1lIjoiVlAifSwiZGVwYXJ0bWVudF9uYW1lIjoiSFIifSwiaWF0IjoxNjE2NDI2MjQ2LCJleHAiOjE2MTcwMzEwNDZ9.FeDz0EaG3Jpm1_lUib9j1iL1lB8Nm0Nbhc3VXiKj_nQ ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"id\": \"10\",\r\n    \"date\": \"2020-12-12\",\r\n    \"start_time\": \"08:00\",\r\n    \"end_time\": \"16:00\",\r\n    \"reason\": \"i dont know\",\r\n    \"staff_id\": \"de145622-86c2-4a22-9bed-8fd3969a080c\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/timeSheets/update",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"timeSheets",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Timesheet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\": \"11\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/timesheets/delete",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"timesheets",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Staff's Availability",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"staff_id\": \"de145622-86c2-4a22-9bed-8fd3969a080c\",\r\n    \"date\": \"2012-10-10\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/timesheets/availability",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"timesheets",
+								"availability"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "Create Reviews",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"title\": \"health\",\r\n    \"body\": \"description\",\r\n    \"booking_id\": \"health\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/reviews/create",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"reviews",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/reviews/get",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"reviews",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Review Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\"id\": \"2\"}\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/categories/1",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"id\": 1,\r\n    \"name\": \"healthyyy\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/reviews/update ",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"reviews",
+								"update "
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\"id\": \"5\"}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/reviews/delete ",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"reviews",
+								"delete "
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Locations",
+			"item": [
+				{
+					"name": "Create Location",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"starlight\",\r\n        \"city\": \"osogboo\",\r\n        \"state\": \"ogun state\",\r\n        \"country\": \"nigeria\",\r\n        \"office_no\": \"32\",\r\n        \"street_name\": \"Onward\",\r\n        \"zip_code\": \"230222\",\r\n        \"phone_no\": \"09876543456\",\r\n        \"email\": \"imilitus+TC_02@ymail.com\",\r\n        \"manager_id\": \"582c3a52-e36d-4ce2-aa37-0ccdfffcce3f\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/locations/",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"locations",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Locations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/locations",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"locations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Location Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\"id\": \"1\"}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/locations/2",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"locations",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Location",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\",\r\n    \"name\": \"starlight\",\r\n    \"city\": \"osogbo\",\r\n    \"state\": \"osun state\",\r\n    \"country\": \"nigeria2\",\r\n    \"street_no\": \"32\",\r\n    \"street_name\": \"Onward\",\r\n    \"zip_code\": \"230222\",\r\n    \"phone_number\": \"09876543456\",\r\n    \"email\": \"email@email.com\",\r\n    \"manager_id\": \"582c3a52-e36d-4ce2-aa37-0ccdfffcce3f\",\r\n    \"longitude\": \"\",\r\n    \"latitude\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/locations/update",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"locations",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Location",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\": \"7\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/locations/3",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"locations",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Multiple Locations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ids\": [2, 1, 1],\r\n    \"status\": \"inactive\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/locations/updateStatusForLocations",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"locations",
+								"updateStatusForLocations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Multiple Locations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"ids\": [5,6]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/locations/deleteLocations",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"locations",
+								"deleteLocations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"name\": \"accountant2\",\r\n    \"description\": \"repairs things\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/categories",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/categories",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\"id\": \"1\"}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/categories/1",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"id\": 1,\r\n    \"name\": \"politics\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/categories",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\"id\": \"9\"}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bookme-api-react.herokuapp.com/categories/4",
+							"protocol": "https",
+							"host": [
+								"bookme-api-react",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"categories",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST LOGIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n\r\n{\r\n    \"public_key\": \"B50F3KvRiLO8vw5lkFin6VQ6wWK61e\",\r\n    \"private_key\": \"U2FsdGVkX18xaKm7rO4YuZzWppbpGxVVkqLTqBV46KWKZ5PeJ9hL6megQkh3GVYa\",\r\n    \"module_id\": \"383\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://bookme-api-react.herokuapp.com",
+					"protocol": "https",
+					"host": [
+						"bookme-api-react",
+						"herokuapp",
+						"com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://bookme-api-react.herokuapp.com/users",
+					"protocol": "https",
+					"host": [
+						"bookme-api-react",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get One User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://bookme-api-react.herokuapp.com/users/682d4a34-0a47-4a59-aae4-e04b5dc40975",
+					"protocol": "https",
+					"host": [
+						"bookme-api-react",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"682d4a34-0a47-4a59-aae4-e04b5dc40975"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All members of Staff",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://bookme-api-react.herokuapp.com/staffs",
+					"protocol": "https",
+					"host": [
+						"bookme-api-react",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"staffs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://bookme-api-react.herokuapp.com/customers",
+					"protocol": "https",
+					"host": [
+						"bookme-api-react",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Filters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://bookme-api-react.herokuapp.com/filters",
+					"protocol": "https",
+					"host": [
+						"bookme-api-react",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"filters"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Im1vZHVsZV9pZCI6IjQwNSIsInVybCI6Imh0dHBzOi8vYm9va21lYXBwLmhlcm9rdWFwcC5jb20iLCJwZXJtaXNzaW9uIjoiY3JlYXRlLCByZWFkLCB1cGRhdGUsIGRlbGV0ZSwgcmVhZGFsbCwgbW9kaWZ5YWxsIiwidXNlcl9kZXRhaWwiOnsiYWNjb3VudF9pZCI6IjRhMWFjNTZmLTU1NWItNGJkOS04NjBhLTVmNzUwZjllZDFlYiIsInVzZXJfbmFtZSI6InRvYmlsYXNpbmRlIiwibmFtZSI6Ik9sYXNpbmRlIEFudGhvbnkiLCJlbWFpbCI6InRvYmlsYXNpbmRlMjAxMkB5YWhvby5jb20ifSwibW9kdWxlX25hbWUiOiJCb29rIGFuZCBMZWFybiB1cGRhdGVkIiwiY3VycmVudF9idXNpbmVzcyI6IlRvbnkiLCJidXNpbmVzc2VzIjpbeyJpZCI6MTc4LCJuYW1lIjoiVG9ueSJ9LHsiaWQiOjE5OSwibmFtZSI6IkJsb2cgQ29tcGFueSJ9XSwicHJvZmlsZSI6Ik93bmVyIiwicm9sZV9kZXRhaWxzIjp7InJvbGVfbGV2ZWwiOjAsInJvbGVfbmFtZSI6Ik93bmVyIn0sInNlY3JldCI6IjdzZCFPKCFAJCohIyojIWE5ODkhIUAqIyFAIyYhXiMqISYzaEFTRDk4NyooIyolJCYiLCJwdWJsaWNfa2V5Ijoib2JCV2dZM1dXQ2lObUxpNGVtSGIyMlNTcGU0UXUwIiwicHJpdmF0ZV9rZXkiOiJVMkZzZEdWa1gxODVwUUVhc29od0dwNjhYSFRSWERpUmFtTDZ6ZmxtV0gzei9idXVFSG5oNlV6LzdZWDVSSVZrIiwiYnVzaW5lc3NfZGVmYXVsdF9wZXJtaXNzaW9uIjoiIiwibW9kdWxlX2RlZmF1bHRfcGVybWlzc2lvbiI6IiIsImN1cnJlbnRQcm9maWxlIjoiMiIsInByb2ZpbGVfbG9naW5faG91cnMiOltdLCJwcm9maWxlX2lwX3JhbmVncyI6W10sIm1vZHVsZXMiOlt7Im5hbWUiOiJCbG9nIEFwcCBsb2NhbCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6MzAwMSJ9LHsibmFtZSI6IkJsb2cgU2luZ2xlIExvZ2luIiwidXJsIjoiaHR0cHM6Ly9ibG9nLnNpbmdsZWxvZ2luLmlvIn0seyJuYW1lIjoidG9ueSBtb2R1bGUiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjMwMDcifSx7Im5hbWUiOiJUb255IGxpdmUiLCJ1cmwiOiJodHRwczovL3RvbnktYmUta2l0LXJlYWN0Lmhlcm9rdWFwcC5jb20ifSx7Im5hbWUiOiJUb255IGJvb2ttZSBwanMiLCJ1cmwiOiJodHRwczovL3RvbnktZmUta2l0Lmhlcm9rdWFwcC5jb20ifSx7Im5hbWUiOiJCb29rIGFuZCBMZWFybiB1cGRhdGVkIiwidXJsIjoiaHR0cHM6Ly9ib29rbWVhcHAuaGVyb2t1YXBwLmNvbSJ9LHsibmFtZSI6InRvbnkgYm9va21lIiwidXJsIjoiaHR0cHM6Ly9ib29rbWUtYXBpLXJlYWN0Lmhlcm9rdWFwcC5jb20ifSx7Im5hbWUiOiJUZWFjaCBNZSIsInVybCI6Imh0dHBzOi8vYXBpdGVhY2guc2luZ2xlbG9naW4uaW8ifV0sImRlcGFydG1lbnQiOlt7Im5hbWUiOiJFbmdpbmVlcmluZyIsImlkIjoxODR9XSwibWFuYWdlcnMiOlt7ImVtYWlsIjoic2FobWllbndva29AZ21haWwuY29tIiwibmFtZSI6IlNhbXVlbCBOd29rbyIsImRlcGFydG1lbnRfbmFtZSI6IkVuZ2luZWVyaW5nIiwiZGVwYXJ0bWVudF9pZCI6MTg0fSx7ImVtYWlsIjoidG9iaWxhc2luZGUyMDE0QGdtYWlsLmNvbSIsIm5hbWUiOiJBbnRob255IFRvYmlsb2JhIiwiZGVwYXJ0bWVudF9uYW1lIjoiRW5naW5lZXJpbmciLCJkZXBhcnRtZW50X2lkIjoxODR9XX0sImlhdCI6MTYyMTEzOTk2NiwiZXhwIjoxNjIxNzQ0NzY2fQ.8kTsrvZCQBBsWeAkFeRFEZP5NPHUaVQCj-wwZcralEc",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://bookme-api-react.herokuapp.com"
+		}
+	]
+}

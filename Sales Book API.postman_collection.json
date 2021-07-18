@@ -1,0 +1,1574 @@
+{
+	"info": {
+		"_postman_id": "1ae62690-aec7-495c-be61-162fe613742f",
+		"name": "Sales Book API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Preference",
+			"item": [
+				{
+					"name": "Create Preference",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"preference\": {\r\n        \"name\":\"Something1\",\r\n        \"displayType\":\"Entity\",\r\n        \"tier\":\"Tier 1\",\r\n        \"parentPC\": 1\r\n    }\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/preferences",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Preference",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"preference\": {\r\n        \"name\":\"Aeauty\",\r\n        \"displayType\":\"Entity\",\r\n        \"tier\":\"Tier 1\",\r\n        \"parentPC\": 2\r\n    }\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/preferences/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"preferences",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Preference",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/preferences",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Preference",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/preferences/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"preferences",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A Preference",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/preferences/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"preferences",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Campaigns",
+			"item": [
+				{
+					"name": "Create Campaign",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"campaign\": {\r\n        \"name\":\"Cosmetics\"\r\n    }\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/campaigns",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"campaigns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Campaign",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"campaign\": {\r\n        \"name\":\"Beauty\"\r\n    }\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/campaigns/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"campaigns",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Campaigns",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/campaigns",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"campaigns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Campaign",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/campaigns/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"campaigns",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A Campaign",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/campaigns/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"campaigns",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Campaign Data",
+			"item": [
+				{
+					"name": "Create Campaign Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"campaignData\": {\r\n        \"dataLabel\":\"Hello2\",\r\n        \"displayType\":\"text\",\r\n        \"campaignId\": 1\r\n    }\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/campaignData",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"campaignData"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Campaign Data",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"campaignData\": {\r\n        \"dataLabel\":\"Aeuty\",\r\n        \"displayType\":\"text\",\r\n        \"campaignId\": 1\r\n    }\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/campaignData/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"campaignData",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Campaign Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/campaignData",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"campaignData"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Campaign Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/campaignData/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"campaignData",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A Campaign Data",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/campaignData/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"campaignData",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Token",
+			"item": [
+				{
+					"name": "Create A User Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"userToken\": {\r\n        \"rating\":\"Hot\",\r\n        \"leadStatus\":\"Closed\",\r\n        \"leadSource\":\"Facebook3\",\r\n        \"campaignCode\":\"C94263\",\r\n        \"pcCode\":[\"P161\",\"P796\"]\r\n    }\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/tokens",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"tokens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update A User Token",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"userToken\": {\r\n        \"rating\":\"Hot\",\r\n        \"leadStatus\":\"Working\",\r\n        \"leadSource\":\"WhatsApp\",\r\n        \"campaignCode\":\"C137\",\r\n        \"pcCode\":[\"P236\",\"P517\"]\r\n    }\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/tokens/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"tokens",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All User Tokens",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/tokens",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"tokens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A User Token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/tokens/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"tokens",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A User Token",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/tokens/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"tokens",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get HTML Script",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/free/tokens/UT6422318751",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"free",
+								"tokens",
+								"UT6422318751"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lead",
+			"item": [
+				{
+					"name": "Create A Lead",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lead\": {\r\n        \"token\":\"UT7717985952\",\r\n        \"email\":\"vee.cee@gmail.com\",\r\n        \"companyName\":\"Comurule1\",\r\n        \"lastName\":\"Chibuike1\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/leads",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"leads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create A Lead with User Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"lead\": {\r\n        \"token\":\"UT4528208359\",\r\n        \"email\":\"vee.cee@gmail.com\",\r\n        \"companyName\":\"Comurule\",\r\n        \"lastName\":\"Chibuike\"\r\n    }\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/free/leads",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"free",
+								"leads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create A Lead with Associates",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lead\": {\r\n        \"status\":\"New\",\r\n        \"rating\":\"Hot\",\r\n        \"source\":\"Facebook\",\r\n        \"email\":\"enwoko1@gmail.com\",\r\n        \"lastName\":\"Chibuike\",\r\n        \"companyName\":\"Comurule\",\r\n        \"preferences\":[\"P663\"],\r\n        \"campaignCode\": \"C77861\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/leads",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"leads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Leads",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/leads",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"leads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Lead",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/leads/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"leads",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update A Lead with Associates",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lead\": {\r\n        \"status\":\"New\",\r\n        \"rating\":\"Hot\",\r\n        \"source\":\"Facebook\",\r\n        \"email\":\"enwshkasjdoko@gmail.com\",\r\n        \"lastName\":\"Chibuike\",\r\n        \"companyName\":\"Comurule\",\r\n        \"preferences\":[\"P362\"],\r\n        \"campaignCode\":\"C94263\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/leads/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"leads",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update A Lead",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"lead\": {\r\n        \"status\":\"New\",\r\n        \"rating\":\"Hot\",\r\n        \"source\":\"Facebook\",\r\n        \"email\":\"enwoko@gmail.com\",\r\n        \"lastName\":\"Chibuike1\",\r\n        \"companyName\":\"Comurule\"\r\n    }\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/leads/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"leads",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A Lead",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/leads/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"leads",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upsert Multiple Leads Csv",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "",
+									"value": "csvUrl",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/main/leads/upsertMultiple",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"leads",
+								"upsertMultiple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Convert A Lead",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/leads/:id/convert",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"leads",
+								":id",
+								"convert"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Create Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\": {\r\n        \"currency\": \"NGN\",\r\n        \"language\": \"english\",\r\n        \"name\": \"Comurule4\",\r\n        \"email\": \"umebuike@gmail.com\",\r\n        \"website\": \"www.hey.com\",\r\n        \"address\": \"get t right this time\",\r\n        \"city\": \"get\",\r\n        \"country\": \"Nigeria\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/accounts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\": {\r\n        \"currency\": \"NGN\",\r\n        \"language\": \"english\",\r\n        \"name\": \"Comurule\",\r\n        \"email\": \"umebuike@gmail.com\",\r\n        \"website\": \"www.hey.com\",\r\n        \"address\": \"get t right this time\",\r\n        \"city\": \"get\",\r\n        \"country\": \"Nigeria\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/accounts/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"accounts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/accounts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get An Account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/accounts/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"accounts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete An Account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/accounts/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"accounts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contact",
+			"item": [
+				{
+					"name": "Create Contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contact\": {\r\n        \"firstName\": \"\",\r\n        \"lastName\": \"catcham1\",\r\n        \"email\": \"hello@game.com\",\r\n        \"username\": \"\",\r\n        \"address\": \"\",\r\n        \"city\": \"\",\r\n        \"state\": \"\",\r\n        \"country\": \"\",\r\n        \"accountId\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/contacts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update A Contact",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contact\": {\r\n        \"firstName\": \"Comureul\",\r\n        \"lastName\": \"catcham12\",\r\n        \"email\": \"hello1@game.com\",\r\n        \"username\": \"\",\r\n        \"address\": \"\",\r\n        \"city\": \"\",\r\n        \"state\": \"\",\r\n        \"country\": \"\",\r\n        \"accountId\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/contacts/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"contacts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Contacts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/contacts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Contact",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/contacts/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"contacts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A Contact",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/contacts/:id ",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"contacts",
+								":id "
+							],
+							"variable": [
+								{
+									"key": "id ",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Store",
+			"item": [
+				{
+					"name": "Create Store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"store\": {\r\n        \"name\": \"Comurule1\",\r\n        \"currency\": \"USD\",\r\n        \"welcomeMessage\": \"hello\",\r\n        \"businessDescription\": \"Comurule is the issssh\",\r\n        \"whatsapp\": \"2347039601940\",\r\n        \"phoneNumber\": \"234703960190\",\r\n        \"email\": \"umebuike@gmail.com\",\r\n        \"facebook\": \"https://facebook.com/comurule\",\r\n        \"twitter\": \"https://twitter.com/comurule\",\r\n        \"instagram\": \"https://instagram.com/comurule\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/stores",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"stores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Store",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"store\": {\r\n        \"name\": \"Comurule Ventures\",\r\n        \"currency\": \"USD\",\r\n        \"status\": \"active\",\r\n        \"welcomeMessage\": \"hello\",\r\n        \"businessDescription\": \"Comurule is the issssh\",\r\n        \"whatsapp\": \"2347039601940\",\r\n        \"phoneNumber\": \"234703960190\",\r\n        \"email\": \"umebuike@gmail.com\",\r\n        \"facebook\": \"https://facebook.com/comurule\",\r\n        \"twitter\": \"https://twitter.com/comurule\",\r\n        \"instagram\": \"https://instagram.com/comurule\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/stores/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"stores",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Stores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/stores",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"stores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Store",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/stores/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"stores",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A Store",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/stores/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"stores",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create A Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\": {\r\n        \"name\": \"Product 2\",\r\n        \"description\": \"A good product\",\r\n        \"media\": [\"download_url\"],\r\n        \"price\": 10,\r\n        \"currency\": \"CAD\",\r\n        \"isQuantityLimited\": true,\r\n        \"quantity\": 100,\r\n        \"lowStockAlert\": true,\r\n        \"lowStockQuantity\": 5,\r\n        \"storeId\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\": {\r\n        \"name\": \"Product 3\",\r\n        \"description\": \"A good product\",\r\n        \"status\": \"active\",\r\n        \"media\": [\"download_url\"],\r\n        \"price\": 10.01,\r\n        \"currency\": \"CAD\",\r\n        \"isQuantityLimited\": true,\r\n        \"quantity\": 100,\r\n        \"lowStockAlert\": true,\r\n        \"lowStockQuantity\": 5\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/products/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/products/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/products/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Create an Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orders\": [{\r\n        \"email\": \"umebuike@gmail.com\",\r\n        \"firstName\": \"Chibuike\",\r\n        \"lastName\": \"Chibuike\",\r\n        \"amount\": 10.01,\r\n        \"quantity\": 1,\r\n        \"storeId\": 1,\r\n        \"productId\": 1,\r\n        \"businessId\": 179\r\n    },{\r\n        \"email\": \"umebuike@gmail.com\",\r\n        \"firstName\": \"Chibuike\",\r\n        \"lastName\": \"Chibuike\",\r\n        \"amount\": 20.02,\r\n        \"quantity\": 2,\r\n        \"storeId\": 1,\r\n        \"productId\": 1,\r\n        \"businessId\": 179\r\n    },{\r\n        \"email\": \"umebuike@gmail.com\",\r\n        \"firstName\": \"Chibuike\",\r\n        \"lastName\": \"Chibuike\",\r\n        \"amount\": 20.02,\r\n        \"quantity\": 2,\r\n        \"storeId\": 1,\r\n        \"productId\": 1,\r\n        \"businessId\": 179\r\n    },{\r\n        \"email\": \"umebuike@gmail.com\",\r\n        \"firstName\": \"Chibuike\",\r\n        \"lastName\": \"Chibuike\",\r\n        \"amount\": 20.02,\r\n        \"quantity\": 2,\r\n        \"storeId\": 1,\r\n        \"productId\": 1,\r\n        \"businessId\": 179\r\n    },{\r\n        \"email\": \"umebuike@gmail.com\",\r\n        \"firstName\": \"Chibuike\",\r\n        \"lastName\": \"Chibuike\",\r\n        \"amount\": 20.02,\r\n        \"quantity\": 2,\r\n        \"storeId\": 1,\r\n        \"productId\": 1,\r\n        \"businessId\": 179\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/free/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"free",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"order\": {\r\n        \"email\": \"umebuike@gmail.com\",\r\n        \"firstName\": \"Chibuike\",\r\n        \"lastName\": \"Chibuike\",\r\n        \"status\": \"paid\"\r\n    }\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/main/orders/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get An Order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/orders/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete An Order",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/main/orders/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"main",
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"private_key\": \"U2FsdGVkX19YIW4DoTAFyy5bFmMp0cpAyizM567IMUwI4X+gv/UqDRc3qPs/b4bR\",\r\n    \"public_key\": \"lGqRvmf5OVDn6cm2Efqgbxr08f0aQ5\",\r\n    \"module_id\": 556\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/free/login_using_keys",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"free",
+						"login_using_keys"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImN1cnJlbnRfYnVzaW5lc3MiOiJDb211cnVsZSIsInVzZXJfbmFtZSI6ImNvbXVydWxlIiwibmFtZSI6IkNoaWJ1aWtlIFVtZWNodWt3dSIsIm1vZHVsZV9pZCI6NTU2LCJlbWFpbCI6InVtZWJ1aWtlQGdtYWlsLmNvbSIsImFjY291bnRfaWQiOiI2YzE3OTlmNS1hNzljLTRiYzctYWFiNC1lMTZmNjM3NWM4MTYiLCJyb2xlX2xldmVsIjowLCJyb2xlX25hbWUiOiJPd25lciIsInBlcm1pc3Npb24iOiJjcmVhdGUsIHJlYWQsIHVwZGF0ZSwgZGVsZXRlLCByZWFkYWxsLCBtb2RpZnlhbGwiLCJidXNpbmVzc19pZCI6MTc5fSwiaWF0IjoxNjIyMzgzOTY0LCJleHAiOjE2MjI2NDMxNjR9.GqIXZWzGY0jWW4tjyfmAeRFGaTIJZ4NLQo1RKIo_1A8",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://comurule-salesapi.herokuapp.com"
+		}
+	]
+}
