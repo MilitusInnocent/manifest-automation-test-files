@@ -1,0 +1,740 @@
+{
+  "stats": {
+    "suites": 15,
+    "tests": 19,
+    "passes": 19,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-05-28T17:21:46.645Z",
+    "end": "2021-05-28T17:22:43.952Z",
+    "duration": 57307,
+    "testsRegistered": 19,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9019b694-7917-4441-97c6-b1cd6406556d",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f163dbfd-f68d-4990-80ee-102c57ff656a",
+          "title": "Inbox App API Testing",
+          "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-inboxapp\\test\\tests.js",
+          "file": "\\test\\tests.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook",
+              "fullTitle": "Inbox App API Testing \"before all\" hook",
+              "timedOut": false,
+              "duration": 9286,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const key = {\n  \"public_key\": \"rJqbI7JgyCklbimFVgRig4SEUmyHD3\",\n  \"private_key\": \"U2FsdGVkX19B9J/DsCcq7aU5ko0s++QUlPLp/CDXxsPYck87D35OluI6DCTyPjHa\",\n  \"module_id\": \"544\"\n};\nchai\n  .request(baseUrl)\n  .post(\"/login\")\n  .send(key)\n  .end((err, res) => {\n    token = res.body.token;\n    res.should.have.status(200);\n    done();\n  });",
+              "err": {},
+              "uuid": "3d25dae4-3e31-4abb-a701-4710d92f61cf",
+              "parentUUID": "f163dbfd-f68d-4990-80ee-102c57ff656a",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "c05d1862-246b-41bc-92dd-ea057c3e840b",
+              "title": "GET All messages",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-inboxapp\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get all the messages",
+                  "fullTitle": "Inbox App API Testing GET All messages Get all the messages",
+                  "timedOut": false,
+                  "duration": 2748,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/messages')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data)\n        .to.be.an.instanceof(Array)\n        .and.to.have.property(0)\n    expect(res.body.data[0]).to.have.property('id').and.to.be.a('number')\n    res.body.data[0].should.all.have.property('senderId')\n    res.body.should.have.keys('status', 'data')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "be684b8d-f900-45e0-935f-b247aa916db6",
+                  "parentUUID": "c05d1862-246b-41bc-92dd-ea057c3e840b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Should return an error",
+                  "fullTitle": "Inbox App API Testing GET All messages Should return an error",
+                  "timedOut": false,
+                  "duration": 1414,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/miessagex')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(404)\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "d799e5f3-7bb9-4374-9ca4-367ddc5e61ec",
+                  "parentUUID": "c05d1862-246b-41bc-92dd-ea057c3e840b",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "be684b8d-f900-45e0-935f-b247aa916db6",
+                "d799e5f3-7bb9-4374-9ca4-367ddc5e61ec"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4162,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "ced7cfa1-b44b-4fae-9a8e-f0c6ed05d80e",
+              "title": "POST One message",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-inboxapp\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST get one message",
+                  "fullTitle": "Inbox App API Testing POST One message POST get one message",
+                  "timedOut": false,
+                  "duration": 1330,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const id = {\n  \"id\": 30\n}\nchai.request(baseUrl)\n  .post('/message/get')\n  .send(id)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data)\n        .to.be.an.not.instanceof(Array)\n        .and.to.have.property(0)\n    expect(res.body.data).to.contain.keys('id', 'receiverId', 'senderId')\n    res.body.should.have.keys('status', 'data')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "48316ee2-13f6-4649-a231-e2d64a7a6fb3",
+                  "parentUUID": "ced7cfa1-b44b-4fae-9a8e-f0c6ed05d80e",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "48316ee2-13f6-4649-a231-e2d64a7a6fb3"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1330,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "604b6dc6-342b-4101-97b7-c31a9c529ff4",
+              "title": "POST Send a message",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-inboxapp\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST send a message",
+                  "fullTitle": "Inbox App API Testing POST Send a message POST send a message",
+                  "timedOut": false,
+                  "duration": 2223,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body ={\n  \"subject\": \"hello world1\",\n  \"body\": \"message body\",\n  \"receiverId\": \"617e38be-49d1-4a66-a0f6-704756383812\"\n  }\nchai.request(baseUrl)\n  .post('/message/create')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n      expect(res).to.have.status(201) //The HTTP 201 Created success status response code indicates that the request has succeeded and has led to the creation of a resource.\n      expect(res.body.status).to.be.equal(true)\n      expect(res.body.message).to.be.equal(\"message sent successfully!\")\n      expect(res.body.data)\n        .to.be.an.not.instanceof(Array)\n        .and.to.have.property(0)\n    expect(res.body.data).to.contain.keys('id', 'receiverId', 'senderId')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "e1d04503-4f68-4dbb-867c-55908cc88239",
+                  "parentUUID": "604b6dc6-342b-4101-97b7-c31a9c529ff4",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e1d04503-4f68-4dbb-867c-55908cc88239"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2223,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "82442534-3ae7-443e-af81-b471bfd67dd0",
+              "title": "POST Send Multiple messages",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-inboxapp\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST send multiple messages",
+                  "fullTitle": "Inbox App API Testing POST Send Multiple messages POST send multiple messages",
+                  "timedOut": false,
+                  "duration": 3783,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body ={\n  \"subject\": \"hello world\",\n  \"body\": \"message body\",\n  \"receivers\": [\"617e38be-49d1-4a66-a0f6-704756383812\", \"7b544312-82d1-482d-982b-370f9d3e2fdf\", \"7b544312-82d1-482d-982b-370f9d3e2fdf\"]\n  }\nchai.request(baseUrl)\n  .post('/message/createMultiple')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n      expect(res).to.have.status(201) //The HTTP 201 Created success status response code indicates that the request has succeeded and has led to the creation of a resource.\n      expect(res.body.status).to.be.equal(true)\n      expect(res.body.message).to.be.equal(\"Operation complete!\")\n      expect(res.body.data)\n        .to.be.an.not.instanceof(Array)\n        .and.to.have.property(0)\n    expect(res.body.data).to.contain.keys('totalRecords', 'successful', 'failed', 'failedRows')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "ae2e259e-f4ca-4031-9721-7f09870ce5c9",
+                  "parentUUID": "82442534-3ae7-443e-af81-b471bfd67dd0",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "ae2e259e-f4ca-4031-9721-7f09870ce5c9"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3783,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "abcd8429-a088-4926-8ef1-91365e39ddc4",
+              "title": "POST Create Draft message",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-inboxapp\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST create draft message",
+                  "fullTitle": "Inbox App API Testing POST Create Draft message POST create draft message",
+                  "timedOut": false,
+                  "duration": 1433,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body ={\n  \"body\": \"i want to leave this message to send later\",\n  \"subject\": \"not sure i want to send this yet\",\n  \"receiverId\": \"\"\n}\nchai.request(baseUrl)\n  .post('/message/draft/create')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n      expect(res).to.have.status(200) //The HTTP 201 Created success status response code indicates that the request has succeeded and has led to the creation of a resource.\n      expect(res.body.status).to.be.equal(true)\n      expect(res.body.message).to.be.equal(\"draft saved successfully!\")\n    res.body.should.have.keys('status', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "c934b964-2621-44ce-8b98-a0d2e29d000c",
+                  "parentUUID": "abcd8429-a088-4926-8ef1-91365e39ddc4",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "c934b964-2621-44ce-8b98-a0d2e29d000c"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1433,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "a4051f22-9134-42f1-a772-0004cb4c05ee",
+              "title": "POST Delete a Message",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-inboxapp\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST delete a message",
+                  "fullTitle": "Inbox App API Testing POST Delete a Message POST delete a message",
+                  "timedOut": false,
+                  "duration": 1430,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body ={\n  \"id\": 46\n}\nchai.request(baseUrl)\n  .post('/message/delete')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n      expect(res).to.have.status(200) //The HTTP 201 Created success status response code indicates that the request has succeeded and has led to the creation of a resource.\n      expect(res.body.status).to.be.equal(true)\n      expect(res.body.message).to.be.equal(\"message deleted successfully!\")\n    res.body.should.have.keys('status', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "e9ddc893-28f2-4fa1-99a3-e81db6688736",
+                  "parentUUID": "a4051f22-9134-42f1-a772-0004cb4c05ee",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e9ddc893-28f2-4fa1-99a3-e81db6688736"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1430,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "23a6346b-7edd-4796-994f-a8dada41bf3f",
+              "title": "POST Delete Multiple messages",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-inboxapp\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST send multiple messages",
+                  "fullTitle": "Inbox App API Testing POST Delete Multiple messages POST send multiple messages",
+                  "timedOut": false,
+                  "duration": 1476,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body ={\n  \"ids\": [ 38, 39, 42]\n}\nchai.request(baseUrl)\n  .post('/message/deleteMultiple')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n      expect(res).to.have.status(200) //The HTTP 201 Created success status response code indicates that the request has succeeded and has led to the creation of a resource.\n      expect(res.body.status).to.be.equal(true)\n      expect(res.body.message).to.be.equal(\"Operation complete!\")\n      expect(res.body.data)\n        .to.be.an.not.instanceof(Array)\n        .and.to.have.property(0)\n    expect(res.body.data).to.contain.keys('totalRecords', 'successful', 'failed', 'failedRows')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "5694e185-7ce5-4c15-a69d-002a5d1dafae",
+                  "parentUUID": "23a6346b-7edd-4796-994f-a8dada41bf3f",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "5694e185-7ce5-4c15-a69d-002a5d1dafae"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1476,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "01a51de3-1399-4847-8913-88025c3cb185",
+              "title": "GET All inbox messages",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-inboxapp\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get all inbox messages",
+                  "fullTitle": "Inbox App API Testing GET All inbox messages Get all inbox messages",
+                  "timedOut": false,
+                  "duration": 8617,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/messages/inbox')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data)\n        .to.be.an.instanceof(Array)\n        .and.to.have.property(0)\n    expect(res.body.data[0]).to.have.property('id').and.to.be.a('number')\n    //res.body.data.should.all.have.property('senderId')\n    res.body.should.have.keys('status', 'data')\n    res.body.should.be.a('object')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "de3d4915-d158-466e-9dc5-43b9afe839d7",
+                  "parentUUID": "01a51de3-1399-4847-8913-88025c3cb185",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Should return an error",
+                  "fullTitle": "Inbox App API Testing GET All inbox messages Should return an error",
+                  "timedOut": false,
+                  "duration": 1408,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/message/inboxes')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(404)\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "08fdee6d-5eba-4473-add4-e45c3dc3f698",
+                  "parentUUID": "01a51de3-1399-4847-8913-88025c3cb185",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "de3d4915-d158-466e-9dc5-43b9afe839d7",
+                "08fdee6d-5eba-4473-add4-e45c3dc3f698"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 10025,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "ca17e692-108c-4286-8344-ae2d82a2f516",
+              "title": "GET All sent messages",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-inboxapp\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get all sent messages",
+                  "fullTitle": "Inbox App API Testing GET All sent messages Get all sent messages",
+                  "timedOut": false,
+                  "duration": 6496,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/messages/sent')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data)\n        .to.be.an.instanceof(Array)\n        .and.to.have.property(0)\n    expect(res.body.data[0]).to.have.property('id').and.to.be.a('number')\n    //res.body.data.should.all.have.property('senderId')\n    res.body.should.have.keys('status', 'data')\n    res.body.should.be.a('object')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "e6eefdc9-54f8-4ef1-8f33-2fe3bc98937e",
+                  "parentUUID": "ca17e692-108c-4286-8344-ae2d82a2f516",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Should return an error",
+                  "fullTitle": "Inbox App API Testing GET All sent messages Should return an error",
+                  "timedOut": false,
+                  "duration": 4324,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/messagei/seni')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(404)\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "62329bfc-0fa9-4cc0-8593-fc2348d42dd9",
+                  "parentUUID": "ca17e692-108c-4286-8344-ae2d82a2f516",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e6eefdc9-54f8-4ef1-8f33-2fe3bc98937e",
+                "62329bfc-0fa9-4cc0-8593-fc2348d42dd9"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 10820,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "e4cddcee-4b0d-4132-9660-25d36bdf2847",
+              "title": "GET All trash messages",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-inboxapp\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get all trash messages",
+                  "fullTitle": "Inbox App API Testing GET All trash messages Get all trash messages",
+                  "timedOut": false,
+                  "duration": 1841,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/messages/trash')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data)\n        .to.be.an.instanceof(Array)\n        .and.to.have.property(0)\n    expect(res.body.data[0]).to.have.property('id').and.to.be.a('number')\n    res.body.should.have.keys('status', 'data')\n    res.body.should.be.a('object')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "652c7f3f-03e7-471f-a152-2d67c6feff9c",
+                  "parentUUID": "e4cddcee-4b0d-4132-9660-25d36bdf2847",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Should return an error",
+                  "fullTitle": "Inbox App API Testing GET All trash messages Should return an error",
+                  "timedOut": false,
+                  "duration": 1439,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/messagei/thrashi')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(404)\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "8a595188-b40d-4e30-9cde-933e851b4fa4",
+                  "parentUUID": "e4cddcee-4b0d-4132-9660-25d36bdf2847",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "652c7f3f-03e7-471f-a152-2d67c6feff9c",
+                "8a595188-b40d-4e30-9cde-933e851b4fa4"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3280,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "c757a15b-f55c-476c-92fd-f94bdee50758",
+              "title": "GET All draft messages",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-inboxapp\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get all draft messages",
+                  "fullTitle": "Inbox App API Testing GET All draft messages Get all draft messages",
+                  "timedOut": false,
+                  "duration": 2050,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/messages/draft/all')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data)\n        .to.be.an.instanceof(Array)\n        .and.to.have.property(0)\n    expect(res.body.data[0]).to.have.property('id').and.to.be.a('number')\n    res.body.should.have.keys('status', 'data')\n    res.body.should.be.a('object')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "a80ec11f-94d0-4a3e-904b-6d17a94055e3",
+                  "parentUUID": "c757a15b-f55c-476c-92fd-f94bdee50758",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Should return an error",
+                  "fullTitle": "Inbox App API Testing GET All draft messages Should return an error",
+                  "timedOut": false,
+                  "duration": 1123,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/message/draft/al')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(404)\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "45d833d9-1cb5-4812-933c-660771d3cd15",
+                  "parentUUID": "c757a15b-f55c-476c-92fd-f94bdee50758",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "a80ec11f-94d0-4a3e-904b-6d17a94055e3",
+                "45d833d9-1cb5-4812-933c-660771d3cd15"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3173,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "e2e0a74a-78e2-40fa-aba8-6bfeff7614ce",
+              "title": "POST Reply a Message",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-inboxapp\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST reply a message",
+                  "fullTitle": "Inbox App API Testing POST Reply a Message POST reply a message",
+                  "timedOut": false,
+                  "duration": 994,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body ={\n  \"body\": \"I am replying to your initial business proposal\",\n  \"id\": 46\n}\n  \nchai.request(baseUrl)\n  .post('/message/reply')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n      expect(res).to.have.status(200) //The HTTP 201 Created success status response code indicates that the request has succeeded and has led to the creation of a resource.\n      expect(res.body.status).to.be.equal(true)\n      expect(res.body.message).to.be.equal(\"message sent successfully!\")\n    res.body.should.have.keys('status', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "8dd9a80c-4805-407f-90d3-dc40b43954b2",
+                  "parentUUID": "e2e0a74a-78e2-40fa-aba8-6bfeff7614ce",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "8dd9a80c-4805-407f-90d3-dc40b43954b2"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 994,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "fab65d9e-cc7a-4f38-9c40-44833b0f40c7",
+              "title": "POST Mark as Read",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-inboxapp\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST Mark as Read",
+                  "fullTitle": "Inbox App API Testing POST Mark as Read POST Mark as Read",
+                  "timedOut": false,
+                  "duration": 1353,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body ={\n  \"id\": 46\n}\n  \nchai.request(baseUrl)\n  .post('/message/status/update')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n      expect(res).to.have.status(200) //The HTTP 201 Created success status response code indicates that the request has succeeded and has led to the creation of a resource.\n      expect(res.body.status).to.be.equal(true)\n      expect(res.body.message).to.be.equal(\"message sent successfully!\")\n    res.body.should.have.keys('status', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "2a5d0a58-938d-464e-81a4-6ee343343a54",
+                  "parentUUID": "fab65d9e-cc7a-4f38-9c40-44833b0f40c7",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "2a5d0a58-938d-464e-81a4-6ee343343a54"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1353,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "03876ea2-2591-40a0-8d4b-4d995a673219",
+              "title": "POST All Users",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-inboxapp\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST all users",
+                  "fullTitle": "Inbox App API Testing POST All Users POST all users",
+                  "timedOut": false,
+                  "duration": 2455,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .post('/users')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n    expect(res.body.data.users[0]).to.have.property('id')\n    res.body.should.have.keys('status', 'data')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "a7575204-732a-4e7a-9e5a-6bebb97b13a1",
+                  "parentUUID": "03876ea2-2591-40a0-8d4b-4d995a673219",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "a7575204-732a-4e7a-9e5a-6bebb97b13a1"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2455,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 30000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "6.2.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.2.0"
+    }
+  }
+}

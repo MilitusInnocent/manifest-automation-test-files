@@ -1,0 +1,2466 @@
+{
+  "stats": {
+    "suites": 57,
+    "tests": 65,
+    "passes": 62,
+    "pending": 0,
+    "failures": 3,
+    "start": "2021-05-28T17:07:56.534Z",
+    "end": "2021-05-28T17:11:40.143Z",
+    "duration": 223609,
+    "testsRegistered": 65,
+    "passPercent": 95.38461538461539,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6f843b7e-5707-45fe-b9cf-2c4394680ad5",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "eddce0c5-8b2b-4b06-af1c-d151cd04aaee",
+          "title": "SalesBook API Testing",
+          "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+          "file": "\\test\\tests.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"SalesBook API Testing\"",
+              "fullTitle": "SalesBook API Testing \"before all\" hook in \"SalesBook API Testing\"",
+              "timedOut": false,
+              "duration": 19006,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const key = {\n  \"private_key\": \"U2FsdGVkX19YIW4DoTAFyy5bFmMp0cpAyizM567IMUwI4X+gv/UqDRc3qPs/b4bR\",\n  \"public_key\": \"lGqRvmf5OVDn6cm2Efqgbxr08f0aQ5\",\n  \"module_id\": 556\n };\nchai\n  .request(baseUrl)\n  .post(\"/free/login_using_keys\")\n  .send(key)\n  .end((err, res) => {\n    res.should.have.status(200);\n    token  = res.body.token\n    done();\n  });",
+              "err": {},
+              "uuid": "b2b9cd11-260b-4395-b3a6-0eddcee60ec0",
+              "parentUUID": "eddce0c5-8b2b-4b06-af1c-d151cd04aaee",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "a578b146-0f1a-4dc9-9e8d-3bc62c445cbb",
+              "title": "POST Create a Preference",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST create a Preference",
+                  "fullTitle": "SalesBook API Testing POST Create a Preference POST create a Preference",
+                  "timedOut": false,
+                  "duration": 9610,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = {\n     \"preference\": {\n       \"name\":\"Something\" + Math.random(),\n       \"displayType\":\"Entity\",\n       \"tier\":\"Tier 1\",\n       \"parentPC\": 1\n   }\n}\nchai.request(baseUrl)\n  .post('/main/preferences')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.message).to.be.equal(\"Preference Center created successfully.\")\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.data).to.have.keys('id', 'name', 'tier', 'displayType', 'pcCode', 'parentPC')\n     expect(res.body.data.id).to.be.a('number')\n     expect(res.body.data.parentPC).to.be.a('number')\n     res.body.should.have.keys('status', 'data', 'message')\n     idForPreference = res.body.data.id\n     done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "e091fe70-4de9-43f4-b39e-960e7c1e3f2a",
+                  "parentUUID": "a578b146-0f1a-4dc9-9e8d-3bc62c445cbb",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e091fe70-4de9-43f4-b39e-960e7c1e3f2a"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 9610,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "64113da8-3839-48e6-9b8d-c95f64ea296d",
+              "title": "PUT Update a Preference",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "PUT Update a Preference",
+                  "fullTitle": "SalesBook API Testing PUT Update a Preference PUT Update a Preference",
+                  "timedOut": false,
+                  "duration": 2982,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = {\n \"preference\": {\n     \"name\":\"Aeauty\",\n     \"displayType\":\"Entity\",\n     \"tier\":\"Tier 1\",\n     \"parentPC\": 2\n }\n  }\nchai.request(baseUrl)\n  .put('/main/preferences/1')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.message).to.be.equal(\"Preference Center updated successfully.\")\n     res.body.should.have.keys('status',  'message')\n     done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "3651d3ae-18aa-43df-aef4-c4ff107c324d",
+                  "parentUUID": "64113da8-3839-48e6-9b8d-c95f64ea296d",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "3651d3ae-18aa-43df-aef4-c4ff107c324d"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2982,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "b6a77b6e-3b83-4046-9a33-5cf81a07ee72",
+              "title": "GET All Preferences",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get all Preferences",
+                  "fullTitle": "SalesBook API Testing GET All Preferences Get all Preferences",
+                  "timedOut": false,
+                  "duration": 1216,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/preferences')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.data.entities).to.be.an('array')\n     expect(res.body.data.entities[0]).to.contain.keys('id', 'name', 'tier', 'parentPC')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "86ac0ff9-1efd-451f-adbd-bf09d5179de4",
+                  "parentUUID": "b6a77b6e-3b83-4046-9a33-5cf81a07ee72",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Should return an error",
+                  "fullTitle": "SalesBook API Testing GET All Preferences Should return an error",
+                  "timedOut": false,
+                  "duration": 1318,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/preferenfce')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(404)\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "d2b73faa-f072-4fc7-8322-4768280494e8",
+                  "parentUUID": "b6a77b6e-3b83-4046-9a33-5cf81a07ee72",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "86ac0ff9-1efd-451f-adbd-bf09d5179de4",
+                "d2b73faa-f072-4fc7-8322-4768280494e8"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2534,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "361f9748-96f5-4f79-8ff4-1564c49b9913",
+              "title": "GET A Preference",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get a Preference",
+                  "fullTitle": "SalesBook API Testing GET A Preference Get a Preference",
+                  "timedOut": false,
+                  "duration": 1997,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/preferences/1')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "71525c30-ea3e-477b-92d1-ee6d603dfdcb",
+                  "parentUUID": "361f9748-96f5-4f79-8ff4-1564c49b9913",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "71525c30-ea3e-477b-92d1-ee6d603dfdcb"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1997,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "9ce70bdd-5871-45e0-8500-e6837749042f",
+              "title": "Delete A Preference",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Delete a Preference",
+                  "fullTitle": "SalesBook API Testing Delete A Preference Delete a Preference",
+                  "timedOut": false,
+                  "duration": 2172,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .delete('/main/preferences/' + idForPreference)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n    expect(res).to.have.status(200)\n    expect(res.body.status).to.be.equal(true)\n    expect(res.body.message).to.be.equal(\"Preference Center deleted successfully.\")\n    res.body.should.have.keys('status',  'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "4020f4b3-e159-4b7b-a2ac-83a3f51a2dd7",
+                  "parentUUID": "9ce70bdd-5871-45e0-8500-e6837749042f",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "4020f4b3-e159-4b7b-a2ac-83a3f51a2dd7"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2172,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "b527d091-1ba5-479e-b831-8b991078d719",
+              "title": "POST Create a Campaign",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST create a Campaign",
+                  "fullTitle": "SalesBook API Testing POST Create a Campaign POST create a Campaign",
+                  "timedOut": false,
+                  "duration": 2191,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = \n{\n    \"campaign\": {\n        \"name\":\"Cosmetics\" + Math.random()\n    }\n}\nchai.request(baseUrl)\n  .post('/main/campaigns')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.message).to.be.equal(\"Campaign created successfully.\")\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.data).to.contain.keys( 'name', \"code\")\n     res.body.should.have.keys('status', 'data', 'message')\n     idForCampaign = res.body.data.id\n     done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "91fd73ed-d141-48f8-83fa-53ee4c7246d6",
+                  "parentUUID": "b527d091-1ba5-479e-b831-8b991078d719",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "91fd73ed-d141-48f8-83fa-53ee4c7246d6"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2191,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "a21c219d-fffa-418a-9572-495e1f6864df",
+              "title": "PUT Update a Campaign",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "PUT Update a campaign",
+                  "fullTitle": "SalesBook API Testing PUT Update a Campaign PUT Update a campaign",
+                  "timedOut": false,
+                  "duration": 4180,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = {\n \"campaign\": {\n     \"name\": \"Beauty\" + Math.random()\n }\n    }\nchai.request(baseUrl)\n  .put('/main/campaigns/1')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.message).to.be.equal(\"Campaign updated successfully.\")\n     res.body.should.have.keys('status', 'message')\n     done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "81c1c236-602e-4b33-89de-f2025e3129fd",
+                  "parentUUID": "a21c219d-fffa-418a-9572-495e1f6864df",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "81c1c236-602e-4b33-89de-f2025e3129fd"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4180,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "675d1002-9e1e-43f8-a7d5-79e14878df3e",
+              "title": "GET All Campaigns",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get all campaigns",
+                  "fullTitle": "SalesBook API Testing GET All Campaigns Get all campaigns",
+                  "timedOut": false,
+                  "duration": 6138,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/campaigns')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.data.entities).to.be.an('array')\n     expect(res.body.data.entities[0]).to.contain.keys('name', 'code')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "f1c8fcc8-ca95-4d9f-a1d7-72187f7bd0ba",
+                  "parentUUID": "675d1002-9e1e-43f8-a7d5-79e14878df3e",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Should return an error",
+                  "fullTitle": "SalesBook API Testing GET All Campaigns Should return an error",
+                  "timedOut": false,
+                  "duration": 1406,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/capagn')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(404)\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "942a787c-d3e3-4846-8a7a-5cfba0717d19",
+                  "parentUUID": "675d1002-9e1e-43f8-a7d5-79e14878df3e",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "f1c8fcc8-ca95-4d9f-a1d7-72187f7bd0ba",
+                "942a787c-d3e3-4846-8a7a-5cfba0717d19"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 7544,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "1fe83dca-357b-413f-a817-4a2d62120942",
+              "title": "GET A Campaign",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get a campaign",
+                  "fullTitle": "SalesBook API Testing GET A Campaign Get a campaign",
+                  "timedOut": false,
+                  "duration": 6067,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/campaigns/1')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "0cf5b7e1-905b-4d4e-84c2-68a7911f1c1c",
+                  "parentUUID": "1fe83dca-357b-413f-a817-4a2d62120942",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "0cf5b7e1-905b-4d4e-84c2-68a7911f1c1c"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 6067,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "a3a31b9b-7098-4d37-a298-e8258f8abf65",
+              "title": "Delete A campaign",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Delete a campaign",
+                  "fullTitle": "SalesBook API Testing Delete A campaign Delete a campaign",
+                  "timedOut": false,
+                  "duration": 15068,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .delete('/main/campaigns/' + idForCampaign)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n    expect(res).to.have.status(200)\n    expect(res.body.status).to.be.equal(true)\n    expect(res.body.message).to.be.equal(\"Campaign deleted successfully.\")\n    res.body.should.have.keys('status',  'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "fd1620e9-6cf8-490d-9691-8ccc80010c1c",
+                  "parentUUID": "a3a31b9b-7098-4d37-a298-e8258f8abf65",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "fd1620e9-6cf8-490d-9691-8ccc80010c1c"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 15068,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "78289076-daa6-4d72-b60b-48e6c0b0a499",
+              "title": "POST Create a Campaign Data",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST create a campaign Data",
+                  "fullTitle": "SalesBook API Testing POST Create a Campaign Data POST create a campaign Data",
+                  "timedOut": false,
+                  "duration": 2453,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = \n{\n   \"campaignData\": {\n     \"dataLabel\":\"Hello\" + Math.random(),\n     \"displayType\":\"text\",\n     \"campaignId\": 1\n   }\n}\nchai.request(baseUrl)\n  .post('/main/campaignData')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n   expect(res).to.have.status(200)\n   expect(res.body.status).to.be.equal(true)\n   expect(res.body.message).to.be.equal(\"Campaign Data created successfully.\")\n   expect(res.body.data).to.be.an.instanceof(Object)\n   expect(res.body.data).to.have.keys('id', 'dataLabel', 'displayType', 'code', 'campaignId')\n   expect(res.body.data.id).to.be.a('number')\n   expect(res.body.data.campaignId).to.be.a('number')\n   res.body.should.have.keys('status', 'data', 'message')\n   idForCampaignData = res.body.data.id\n     done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "ad24ff31-b34b-406d-897f-2c6c1d150ec7",
+                  "parentUUID": "78289076-daa6-4d72-b60b-48e6c0b0a499",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "ad24ff31-b34b-406d-897f-2c6c1d150ec7"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2453,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "0f787d67-f096-408d-ac6d-632100c0a1ab",
+              "title": "PUT Update a Campaign Data",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "PUT Update a campaign Data",
+                  "fullTitle": "SalesBook API Testing PUT Update a Campaign Data PUT Update a campaign Data",
+                  "timedOut": false,
+                  "duration": 9625,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = {\n   \"campaignData\": {\n     \"dataLabel\":\"Aeuty\",\n     \"displayType\":\"text\",\n     \"campaignId\": 1\n   }\n      }\nchai.request(baseUrl)\n  .put('/main/campaignData/2')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.message).to.be.equal(\"Campaign Data updated successfully.\")\n     res.body.should.have.keys('status',  'message')\n     done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "fe8bec74-8b51-485a-8f2a-341fcd3eaa0d",
+                  "parentUUID": "0f787d67-f096-408d-ac6d-632100c0a1ab",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "fe8bec74-8b51-485a-8f2a-341fcd3eaa0d"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 9625,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "2378c578-77ce-446a-9f4c-68543e608c65",
+              "title": "GET All Campaign Data",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get all campaign Data",
+                  "fullTitle": "SalesBook API Testing GET All Campaign Data Get all campaign Data",
+                  "timedOut": false,
+                  "duration": 2815,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/campaignData')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.message).to.be.equal('Campaign Data list.')\n     expect(res.body.data.entities).to.be.an('array')\n     expect(res.body.data.totalCount).to.be.a('number')\n     expect(res.body.data.entities[0]).to.contain.keys('id', 'dataLabel', 'code', 'campaignId')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "0727a01c-f94a-40c3-9fef-1668595fa4f2",
+                  "parentUUID": "2378c578-77ce-446a-9f4c-68543e608c65",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Should return an error",
+                  "fullTitle": "SalesBook API Testing GET All Campaign Data Should return an error",
+                  "timedOut": false,
+                  "duration": 1133,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/campin')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(404)\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "75e4f460-811d-4543-bbaf-8089a69e671a",
+                  "parentUUID": "2378c578-77ce-446a-9f4c-68543e608c65",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "0727a01c-f94a-40c3-9fef-1668595fa4f2",
+                "75e4f460-811d-4543-bbaf-8089a69e671a"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3948,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "9f2cd18b-70af-45e8-ab23-294073a712a9",
+              "title": "GET A Campaign Data",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get a campaign Data",
+                  "fullTitle": "SalesBook API Testing GET A Campaign Data Get a campaign Data",
+                  "timedOut": false,
+                  "duration": 1538,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/campaignData/2')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.data).to.contain.keys('id', 'dataLabel', 'code', 'campaignId')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "9d835f9e-5781-4f14-9dbd-6e0483a686a6",
+                  "parentUUID": "9f2cd18b-70af-45e8-ab23-294073a712a9",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "9d835f9e-5781-4f14-9dbd-6e0483a686a6"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1538,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "6cd5a9ea-5069-4332-912d-4f3234a4f91e",
+              "title": "Delete A Campaign Data",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Delete a campaign Data",
+                  "fullTitle": "SalesBook API Testing Delete A Campaign Data Delete a campaign Data",
+                  "timedOut": false,
+                  "duration": 2110,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .delete('/main/campaignData/' + idForCampaignData)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n    expect(res).to.have.status(200)\n    expect(res.body.status).to.be.equal(true)\n    expect(res.body.message).to.be.equal(\"Campaign Data deleted successfully.\")\n    res.body.should.have.keys('status',  'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "06adbe21-8b6c-4955-84ee-032a27734b98",
+                  "parentUUID": "6cd5a9ea-5069-4332-912d-4f3234a4f91e",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "06adbe21-8b6c-4955-84ee-032a27734b98"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2110,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "56815e8c-d500-45fc-b03d-b3432a0f3fb5",
+              "title": "POST Create a User Token",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST create a User Token",
+                  "fullTitle": "SalesBook API Testing POST Create a User Token POST create a User Token",
+                  "timedOut": false,
+                  "duration": 2646,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = \n{\n     \"userToken\": {\n       \"rating\":\"Hot\",\n       \"leadStatus\":\"Closed\",\n       \"leadSource\":\"Facebook\" + Math.random(),\n       \"campaignCode\":\"C93839\",\n       \"pcCode\":[\"P161\",\"P796\"]\n   }\n}\nchai.request(baseUrl)\n  .post('/main/tokens')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n   expect(res).to.have.status(200)\n   expect(res.body.status).to.be.equal(true)\n   expect(res.body.message).to.be.equal(\"User Token created successfully.\")\n   expect(res.body.data).to.be.an.instanceof(Object)\n   expect(res.body.data).to.contain.keys('id', 'leadSource', 'leadStatus', 'pcCode', 'userToken', 'rating')\n   expect(res.body.data.id).to.be.a('number')\n   expect(res.body.data.pcCode).to.be.an('array')\n   res.body.should.have.keys('status', 'data', 'message')\n   idForTokens = res.body.data.id\n     done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "d3998851-daee-45f6-8cee-108116f1f075",
+                  "parentUUID": "56815e8c-d500-45fc-b03d-b3432a0f3fb5",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "d3998851-daee-45f6-8cee-108116f1f075"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2646,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "08b8858a-cb91-4a15-a7ac-3cf6bc553698",
+              "title": "PUT Update a User Token",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "PUT Update a User Token",
+                  "fullTitle": "SalesBook API Testing PUT Update a User Token PUT Update a User Token",
+                  "timedOut": false,
+                  "duration": 4406,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = {\n     \"userToken\": {\n       \"rating\":\"Hot\",\n       \"leadStatus\":\"Working\",\n       \"leadSource\":\"WhatsApp\",\n       \"campaignCode\":\"C137\",\n       \"pcCode\":[\"P236\",\"P517\"]\n   }\n      }\nchai.request(baseUrl)\n  .put('/main/tokens/1')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.message).to.be.equal(\"User Token updated successfully.\")\n     res.body.should.have.keys('status',  'message')\n     done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "1815ed2f-3b17-4441-b9d4-e49a817626a5",
+                  "parentUUID": "08b8858a-cb91-4a15-a7ac-3cf6bc553698",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "1815ed2f-3b17-4441-b9d4-e49a817626a5"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4406,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "612c44e0-c034-48aa-924d-1ec2550ef67c",
+              "title": "GET All User Token",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get all User Token",
+                  "fullTitle": "SalesBook API Testing GET All User Token Get all User Token",
+                  "timedOut": false,
+                  "duration": 2648,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/tokens')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.message).to.be.equal('User Token list.')\n     expect(res.body.data.entities).to.be.an('array')\n     expect(res.body.data.totalCount).to.be.a('number')\n     expect(res.body.data.entities[0]).to.contain.keys('id', 'leadSource', 'leadStatus', 'campaignCode')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "2ea78a77-41c6-4912-8b03-7e520b6e8fa8",
+                  "parentUUID": "612c44e0-c034-48aa-924d-1ec2550ef67c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Should return an error",
+                  "fullTitle": "SalesBook API Testing GET All User Token Should return an error",
+                  "timedOut": false,
+                  "duration": 1823,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/tokns')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(404)\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "0e6db9ff-30b6-4f44-82ff-0a652ded84d5",
+                  "parentUUID": "612c44e0-c034-48aa-924d-1ec2550ef67c",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "2ea78a77-41c6-4912-8b03-7e520b6e8fa8",
+                "0e6db9ff-30b6-4f44-82ff-0a652ded84d5"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4471,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "37d5b474-153d-4aea-bf84-37a3f4610393",
+              "title": "GET A User Token",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get a User Token",
+                  "fullTitle": "SalesBook API Testing GET A User Token Get a User Token",
+                  "timedOut": false,
+                  "duration": 1604,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/tokens/1')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.data).to.contain.keys('id', 'leadSource', 'leadStatus', 'campaignCode')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "b722bd9a-8ec2-4a99-bc79-e87f154f048b",
+                  "parentUUID": "37d5b474-153d-4aea-bf84-37a3f4610393",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "b722bd9a-8ec2-4a99-bc79-e87f154f048b"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1604,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "913d255a-db06-482e-a864-4de75019713e",
+              "title": "Delete A User Token",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Delete a User Token",
+                  "fullTitle": "SalesBook API Testing Delete A User Token Delete a User Token",
+                  "timedOut": false,
+                  "duration": 1349,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .delete('/main/tokens/' + idForTokens)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n    expect(res).to.have.status(200)\n    expect(res.body.status).to.be.equal(true)\n    expect(res.body.message).to.be.equal(\"User Token deleted successfully.\")\n    res.body.should.have.keys('status',  'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "1881ae8a-422a-4ddf-86db-04b897b1b03d",
+                  "parentUUID": "913d255a-db06-482e-a864-4de75019713e",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "1881ae8a-422a-4ddf-86db-04b897b1b03d"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1349,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "7eca9c11-bf2f-4c99-80c8-bb2439e94ce2",
+              "title": "GET HTML Script",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "GET HTML Script",
+                  "fullTitle": "SalesBook API Testing GET HTML Script GET HTML Script",
+                  "timedOut": false,
+                  "duration": 1167,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/free/tokens/UT4411581913')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "2de83444-d60d-4d93-9fce-16688049d3b4",
+                  "parentUUID": "7eca9c11-bf2f-4c99-80c8-bb2439e94ce2",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "2de83444-d60d-4d93-9fce-16688049d3b4"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1167,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "3f7dea0f-b674-44c7-bceb-f0192805fb36",
+              "title": "POST Create a Lead",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST create a Lead",
+                  "fullTitle": "SalesBook API Testing POST Create a Lead POST create a Lead",
+                  "timedOut": false,
+                  "duration": 4591,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = \n{\n \"lead\": {\n     \"token\":\"UT4528208359\",\n     \"email\": Math.random() + \"cee@gmail.com\",\n     \"companyName\":\"Comurule\",\n     \"lastName\":\"Chibuike\"\n }\n        }\nchai.request(baseUrl)\n  .post('/main/leads')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n   expect(res).to.have.status(200)\n   expect(res.body.status).to.be.equal(true)\n   expect(res.body.message).to.be.equal(\"Lead created successfully.\")\n   \n   done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "e5717970-c0c6-42b9-b5a0-ceed2426e401",
+                  "parentUUID": "3f7dea0f-b674-44c7-bceb-f0192805fb36",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e5717970-c0c6-42b9-b5a0-ceed2426e401"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4591,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "cec8a885-f00e-4411-8313-7a11ac621439",
+              "title": "POST Create a Lead with User Token",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST create a Lead with User Token",
+                  "fullTitle": "SalesBook API Testing POST Create a Lead with User Token POST create a Lead with User Token",
+                  "timedOut": false,
+                  "duration": 3078,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = \n{\n \"lead\": {\n     \"token\":\"UT4528208359\",\n     \"email\":\"vee.cee@gmail.com\",\n     \"companyName\":\"Comurule\",\n     \"lastName\":\"Chibuike\"\n }\n      }\nchai.request(baseUrl)\n  .post('/free/leads')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n   expect(res).to.have.status(200)\n   expect(res.body.status).to.be.equal(true)\n   expect(res.body.message).to.be.equal(\"Lead created successfully.\")\n   done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "72a6deab-7b80-4097-8257-01ac107b6c1b",
+                  "parentUUID": "cec8a885-f00e-4411-8313-7a11ac621439",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "72a6deab-7b80-4097-8257-01ac107b6c1b"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3078,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "48d2ee69-49ad-4b67-a59e-388ae0f8e368",
+              "title": "POST Create a Lead with Associates",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST create a Lead with Associates",
+                  "fullTitle": "SalesBook API Testing POST Create a Lead with Associates POST create a Lead with Associates",
+                  "timedOut": false,
+                  "duration": 4753,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = \n{\n     \"lead\": {\n       \"status\":\"New\",\n       \"rating\":\"Hot\",\n       \"source\":\"Facebook\",\n       \"email\":\"enwoko1@gmail.com\",\n       \"lastName\":\"Chibuike\",\n       \"companyName\":\"Comurule\",\n       \"preferences\":[\"P663\"],\n       \"campaignCode\": \"C77861\"\n   }\n    }\nchai.request(baseUrl)\n  .post('/main/leads')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n   expect(res).to.have.status(200)\n   expect(res.body.status).to.be.equal(true)\n   expect(res.body.message).to.be.equal(\"Lead created successfully.\")\n     done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "afbb3284-123b-4f4c-90cc-f7f492652046",
+                  "parentUUID": "48d2ee69-49ad-4b67-a59e-388ae0f8e368",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "afbb3284-123b-4f4c-90cc-f7f492652046"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4753,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "52ccb48d-0224-4ee7-bd49-51757dc7fef5",
+              "title": "GET All Leads",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get all Leads",
+                  "fullTitle": "SalesBook API Testing GET All Leads Get all Leads",
+                  "timedOut": false,
+                  "duration": 2822,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/leads')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.message).to.be.equal('Lead list.')\n     expect(res.body.data.entities).to.be.an('array')\n     expect(res.body.data.totalCount).to.be.a('number')\n     expect(res.body.data.entities[0]).to.contain.keys('id', 'status', 'source', 'rating', 'code')\n    res.body.should.have.keys('status', 'data', 'message')\n    array = res.body.data.entities\n    idForLeads = res.body.data.entities[array.length-1].id\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "0e1e5646-5055-4aef-beb4-a476e9683a15",
+                  "parentUUID": "52ccb48d-0224-4ee7-bd49-51757dc7fef5",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "0e1e5646-5055-4aef-beb4-a476e9683a15"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2822,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "50f9c730-8a63-41d9-a2e9-c16912378600",
+              "title": "PUT Update a Lead with Associates",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "PUT Update a Lead with associates",
+                  "fullTitle": "SalesBook API Testing PUT Update a Lead with Associates PUT Update a Lead with associates",
+                  "timedOut": false,
+                  "duration": 1797,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = {\n     \"lead\": {\n       \"status\":\"New\",\n       \"rating\":\"Hot\",\n       \"source\":\"Facebook\",\n       \"email\":\"enwshkasjdoko@gmail.com\",\n       \"lastName\":\"Chibuike\",\n       \"companyName\":\"Comurule\",\n       \"preferences\":[\"P362\"],\n       \"campaignCode\":\"C77861\"\n   }\n        }\nchai.request(baseUrl)\n  .put('/main/leads/' + idForLeads)\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.message).to.be.equal(\"Lead updated successfully.\")\n     res.body.should.have.keys('status',  'message')\n     done()\n  }).catch((err) => done(err))",
+                  "err": {
+                    "message": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 200 but got 400",
+                    "estack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 200 but got 400\n    at C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js:606:35\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)",
+                    "diff": "- 400\n+ 200\n"
+                  },
+                  "uuid": "1a754a3c-fcaa-4637-87ad-5f5f94e7197b",
+                  "parentUUID": "50f9c730-8a63-41d9-a2e9-c16912378600",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "1a754a3c-fcaa-4637-87ad-5f5f94e7197b"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 1797,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "0be383cf-8c32-4e85-ae76-4cec991fae9e",
+              "title": "PUT Update a Lead",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "PUT Update a Lead",
+                  "fullTitle": "SalesBook API Testing PUT Update a Lead PUT Update a Lead",
+                  "timedOut": false,
+                  "duration": 1032,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = {\n     \"lead\": {\n       \"status\":\"New\",\n       \"rating\":\"Hot\",\n       \"source\":\"Facebook\",\n       \"email\":\"enwshkasjdoko@gmail.com\",\n       \"lastName\":\"Chibuike\",\n       \"companyName\":\"Comurule\",\n       \"preferences\":[\"P362\"],\n       \"campaignCode\":\"C77861\"\n   }\n        }\nchai.request(baseUrl)\n  .put('/main/leads/' + idForLeads)\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.message).to.be.equal(\"Lead updated successfully.\")\n     res.body.should.have.keys('status',  'message')\n     done()\n  }).catch((err) => done(err))",
+                  "err": {
+                    "message": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 200 but got 400",
+                    "estack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 200 but got 400\n    at C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js:634:35\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)",
+                    "diff": "- 400\n+ 200\n"
+                  },
+                  "uuid": "af322799-0351-4c27-b8dd-973f77251791",
+                  "parentUUID": "0be383cf-8c32-4e85-ae76-4cec991fae9e",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "af322799-0351-4c27-b8dd-973f77251791"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 1032,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "107611f5-1317-4884-95c1-e82491459d32",
+              "title": "GET A Lead",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get a Lead",
+                  "fullTitle": "SalesBook API Testing GET A Lead Get a Lead",
+                  "timedOut": false,
+                  "duration": 3660,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/leads/' + idForLeads)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.data).to.contain.keys('id', 'source', 'rating', 'code', 'currency', 'language')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "2d7b75f2-ad74-4663-bd05-203acb29250c",
+                  "parentUUID": "107611f5-1317-4884-95c1-e82491459d32",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "2d7b75f2-ad74-4663-bd05-203acb29250c"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3660,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "f8984468-27e2-49d7-8503-9fb1886476c9",
+              "title": "GET Convert A Lead",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get Convert A Lead",
+                  "fullTitle": "SalesBook API Testing GET Convert A Lead Get Convert A Lead",
+                  "timedOut": false,
+                  "duration": 1376,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/leads/' + idForLeads + '/convert')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.message).to.be.equal(\"Lead converted successfully.\")\n    res.body.should.have.keys('status', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "a1e0f983-1f04-46af-81c8-50aff60003dd",
+                  "parentUUID": "f8984468-27e2-49d7-8503-9fb1886476c9",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "a1e0f983-1f04-46af-81c8-50aff60003dd"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1376,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "1bc7bb5a-6289-4318-8708-b92d9948c607",
+              "title": "Delete A Lead",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Delete a Lead",
+                  "fullTitle": "SalesBook API Testing Delete A Lead Delete a Lead",
+                  "timedOut": false,
+                  "duration": 9169,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .delete('/main/leads/' + idForLeads)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n    expect(res).to.have.status(200)\n    expect(res.body.status).to.be.equal(true)\n    expect(res.body.message).to.be.equal(\"Lead deleted successfully.\")\n    res.body.should.have.keys('status',  'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "b840591b-a706-426e-a4c5-1da91475e531",
+                  "parentUUID": "1bc7bb5a-6289-4318-8708-b92d9948c607",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "b840591b-a706-426e-a4c5-1da91475e531"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 9169,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "77d2b0c3-8851-4ddb-af0a-a7d8913fa2d2",
+              "title": "POST Upsert Multiple Leads Csv",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST Upsert Multiple Leads Csv",
+                  "fullTitle": "SalesBook API Testing POST Upsert Multiple Leads Csv POST Upsert Multiple Leads Csv",
+                  "timedOut": false,
+                  "duration": 9833,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .post('/main/leads/upsertMultiple')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n   expect(res).to.have.status(200)\n     done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "203bd53c-e9c6-4acf-8fa5-b87094488819",
+                  "parentUUID": "77d2b0c3-8851-4ddb-af0a-a7d8913fa2d2",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "203bd53c-e9c6-4acf-8fa5-b87094488819"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 9833,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "df863adb-c57c-480c-83ba-994e5c2098ab",
+              "title": "POST Create an Account",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST create an Account",
+                  "fullTitle": "SalesBook API Testing POST Create an Account POST create an Account",
+                  "timedOut": false,
+                  "duration": 4446,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = \n{\n \"account\": {\n   \"currency\": \"NGN\",\n   \"language\": \"english\",\n   \"name\": \"Comurule\" + Math.random(),\n   \"email\": \"umebuike@gmail.com\",\n   \"website\": \"www.hey.com\",\n   \"address\": \"get t right this time\",\n   \"city\": \"get\",\n   \"country\": \"Nigeria\"\n }\n        }\nchai.request(baseUrl)\n  .post('/main/accounts')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n   expect(res).to.have.status(200)\n   expect(res.body.status).to.be.equal(true)\n   expect(res.body.message).to.be.equal(\"Account created successfully.\")\n   expect(res.body.data).to.be.an.instanceof(Object)\n   expect(res.body.data).to.contain.keys('id', 'currency', 'language', 'name', 'email', 'website', 'city', 'country')\n   expect(res.body.data.id).to.be.a('number')\n   res.body.should.have.keys('status', 'data', 'message')            \n   idForAccounts = res.body.data.id\n   done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "b11d34da-41c0-48e7-a199-e97b6976d2b9",
+                  "parentUUID": "df863adb-c57c-480c-83ba-994e5c2098ab",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "b11d34da-41c0-48e7-a199-e97b6976d2b9"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4446,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "622f6a45-a56d-4d17-a118-2afe685fcf8b",
+              "title": "PUT Update an Account",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "PUT Update an Account",
+                  "fullTitle": "SalesBook API Testing PUT Update an Account PUT Update an Account",
+                  "timedOut": false,
+                  "duration": 1033,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = {\n     \"account\": {\n       \"currency\": \"NGN\",\n       \"language\": \"english\",\n       \"name\": \"Comurule\",\n       \"email\": \"umebuike@gmail.com\",\n       \"website\": \"www.hey.com\",\n       \"address\": \"get t right this time\",\n       \"city\": \"get\",\n       \"country\": \"Nigeria\"\n   }\n      }\nchai.request(baseUrl)\n  .put('/main/accounts/1')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.message).to.be.equal(\"Account updated successfully.\")\n     res.body.should.have.keys('status',  'message')\n     done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "1e27ef58-46fa-401f-ac74-2fe37cb00ec4",
+                  "parentUUID": "622f6a45-a56d-4d17-a118-2afe685fcf8b",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "1e27ef58-46fa-401f-ac74-2fe37cb00ec4"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1033,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "2d6bbeea-4604-4e70-a82a-042cec38ba0b",
+              "title": "GET All Accounts",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get all accounts",
+                  "fullTitle": "SalesBook API Testing GET All Accounts Get all accounts",
+                  "timedOut": false,
+                  "duration": 4549,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/accounts')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.message).to.be.equal('Account list.')\n     expect(res.body.data.entities).to.be.an('array')\n     expect(res.body.data.totalCount).to.be.a('number')\n     expect(res.body.data.entities[0]).to.contain.keys('id', 'currency', 'language', 'name', 'email', 'website', 'city', 'country')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "88d1fb7e-12a5-4770-a8e5-09b62333d0f0",
+                  "parentUUID": "2d6bbeea-4604-4e70-a82a-042cec38ba0b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Should return an error",
+                  "fullTitle": "SalesBook API Testing GET All Accounts Should return an error",
+                  "timedOut": false,
+                  "duration": 1426,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/accunts')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n    expect(res).to.have.status(404)\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "25b06025-aa4a-4b61-8681-ae7a984c7183",
+                  "parentUUID": "2d6bbeea-4604-4e70-a82a-042cec38ba0b",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "88d1fb7e-12a5-4770-a8e5-09b62333d0f0",
+                "25b06025-aa4a-4b61-8681-ae7a984c7183"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 5975,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "e166c9e7-cb36-45e6-a673-6d4c55710820",
+              "title": "GET An Account",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get an Account",
+                  "fullTitle": "SalesBook API Testing GET An Account Get an Account",
+                  "timedOut": false,
+                  "duration": 2161,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/accounts/1')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.data).to.contain.keys('id', 'currency', 'language', 'name', 'email', 'website', 'city', 'country')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "61184317-55fe-4e4c-a104-5b95cf8c5097",
+                  "parentUUID": "e166c9e7-cb36-45e6-a673-6d4c55710820",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "61184317-55fe-4e4c-a104-5b95cf8c5097"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2161,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "28328e34-0062-49d8-84a5-51580129a1e7",
+              "title": "Delete An Account",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Delete an Account",
+                  "fullTitle": "SalesBook API Testing Delete An Account Delete an Account",
+                  "timedOut": false,
+                  "duration": 6371,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .delete('/main/accounts/' + idForAccounts)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n    expect(res).to.have.status(200)\n    expect(res.body.status).to.be.equal(true)\n    expect(res.body.message).to.be.equal(\"Account deleted successfully.\")\n    res.body.should.have.keys('status',  'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "6d26f828-7bc4-43e3-99ca-59abb1bbafec",
+                  "parentUUID": "28328e34-0062-49d8-84a5-51580129a1e7",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "6d26f828-7bc4-43e3-99ca-59abb1bbafec"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 6371,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "6e22fc91-a65e-4078-8db4-9fdab51e1fd9",
+              "title": "POST Create a Contact",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST create a Contact",
+                  "fullTitle": "SalesBook API Testing POST Create a Contact POST create a Contact",
+                  "timedOut": false,
+                  "duration": 11865,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = \n{\n     \"contact\": {\n       \"firstName\": \"\",\n       \"lastName\": \"killam\" + Math.random(),\n       \"email\": Math.random() + \"imilitus@ymail.com\",\n       \"username\": \"\",\n       \"address\": \"\",\n       \"city\": \"\",\n       \"state\": \"\",\n       \"country\": \"\",\n       \"accountId\": 1\n   }\n        }\nchai.request(baseUrl)\n  .post('/main/contacts')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n   expect(res).to.have.status(200)\n   expect(res.body.status).to.be.equal(true)\n   expect(res.body.message).to.be.equal(\"Contact created successfully.\")\n   expect(res.body.data).to.be.an.instanceof(Object)\n   expect(res.body.data).to.contain.keys('id', \"firstName\", 'lastName', 'email', 'username', 'address', 'city', 'state', 'country')\n   expect(res.body.data.id).to.be.a('number')\n   res.body.should.have.keys('status', 'data', 'message')            \n   idForContacts = res.body.data.id\n   done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "d14d90cf-bd36-4a34-9ac7-35ba065fb74c",
+                  "parentUUID": "6e22fc91-a65e-4078-8db4-9fdab51e1fd9",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "d14d90cf-bd36-4a34-9ac7-35ba065fb74c"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 11865,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "247f2fd6-5876-46ec-86a1-73ee9180d233",
+              "title": "PUT Update a Contact",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "PUT Update a Contact",
+                  "fullTitle": "SalesBook API Testing PUT Update a Contact PUT Update a Contact",
+                  "timedOut": false,
+                  "duration": 1770,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = {\n     \"contact\": {\n       \"firstName\": \"Comureul\",\n       \"lastName\": \"catcham12\",\n       \"email\": \"hello1@game.com\",\n       \"username\": \"\",\n       \"address\": \"\",\n       \"city\": \"\",\n       \"state\": \"\",\n       \"country\": \"\",\n       \"accountId\": 1\n   }\n      }\nchai.request(baseUrl)\n  .put('/main/contacts/1')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.message).to.be.equal(\"Contact updated successfully.\")\n     res.body.should.have.keys('status',  'message')\n     done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "73bbd73c-e153-4ca4-bf18-f120598eadd4",
+                  "parentUUID": "247f2fd6-5876-46ec-86a1-73ee9180d233",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "73bbd73c-e153-4ca4-bf18-f120598eadd4"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1770,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "8973b91b-7cb8-4520-bc1e-5b9671cc848d",
+              "title": "GET All contacts",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get all contacts",
+                  "fullTitle": "SalesBook API Testing GET All contacts Get all contacts",
+                  "timedOut": false,
+                  "duration": 1150,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/contacts')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.message).to.be.equal('Contact list.')\n     expect(res.body.data.entities).to.be.an('array')\n     expect(res.body.data.totalCount).to.be.a('number')\n     expect(res.body.data.entities[0]).to.contain.keys('id', \"firstName\", 'lastName', 'email', 'username', 'address', 'city', 'state', 'country')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "5ef7b6c8-0b15-40b5-9907-0c01b8d54988",
+                  "parentUUID": "8973b91b-7cb8-4520-bc1e-5b9671cc848d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Should return an error",
+                  "fullTitle": "SalesBook API Testing GET All contacts Should return an error",
+                  "timedOut": false,
+                  "duration": 969,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/cntacts')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(404)\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "2a2929d3-4a79-4f0e-ba82-3caf7c3d8802",
+                  "parentUUID": "8973b91b-7cb8-4520-bc1e-5b9671cc848d",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "5ef7b6c8-0b15-40b5-9907-0c01b8d54988",
+                "2a2929d3-4a79-4f0e-ba82-3caf7c3d8802"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2119,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "d4c4bb3d-711e-428d-b9b4-d951ff88ec24",
+              "title": "GET A Contact",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get a Contact",
+                  "fullTitle": "SalesBook API Testing GET A Contact Get a Contact",
+                  "timedOut": false,
+                  "duration": 1624,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/contacts/1')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.data).to.contain.keys('id', \"firstName\", 'lastName', 'email', 'username', 'address', 'city', 'state', 'country')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "ec8ca3b3-bb85-4215-8b01-ac6ed3711ac1",
+                  "parentUUID": "d4c4bb3d-711e-428d-b9b4-d951ff88ec24",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "ec8ca3b3-bb85-4215-8b01-ac6ed3711ac1"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1624,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "78d6a7a2-9f5f-47ee-a990-c29335e4903d",
+              "title": "Delete A Contact",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Delete a Contact",
+                  "fullTitle": "SalesBook API Testing Delete A Contact Delete a Contact",
+                  "timedOut": false,
+                  "duration": 1072,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .delete('/main/contacts/' + idForContacts)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n    expect(res).to.have.status(200)\n    expect(res.body.status).to.be.equal(true)\n    expect(res.body.message).to.be.equal(\"Contact deleted successfully.\")\n    res.body.should.have.keys('status',  'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "2b3b9e8c-1af6-411f-9bd6-8b0da2dbd8f8",
+                  "parentUUID": "78d6a7a2-9f5f-47ee-a990-c29335e4903d",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "2b3b9e8c-1af6-411f-9bd6-8b0da2dbd8f8"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1072,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "c448d2eb-d66d-4816-825f-bcf76cb97407",
+              "title": "POST Create a Store",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST create a Store",
+                  "fullTitle": "SalesBook API Testing POST Create a Store POST create a Store",
+                  "timedOut": false,
+                  "duration": 1553,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = \n{\n     \"store\": {\n       \"name\": \"Comurule\" + Math.random(),\n       \"currency\": \"USD\",\n       \"welcomeMessage\": \"hello\",\n       \"businessDescription\": \"Comurule is the issssh\",\n       \"whatsapp\": \"2347039601940\",\n       \"phoneNumber\": \"234703960190\",\n       \"email\": \"umebuike@gmail.com\",\n       \"facebook\": \"https://facebook.com/comurule\",\n       \"twitter\": \"https://twitter.com/comurule\",\n       \"instagram\": \"https://instagram.com/comurule\"\n   }\n        }\nchai.request(baseUrl)\n  .post('/main/stores')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n   expect(res).to.have.status(200)\n   expect(res.body.status).to.be.equal(true)\n   expect(res.body.message).to.be.equal(\"Store created successfully.\")\n   expect(res.body.data).to.be.an.instanceof(Object)\n   expect(res.body.data).to.contain.keys('id', \"name\", 'currency', 'slug', 'status', 'contact', 'business')\n   expect(res.body.data.id).to.be.a('number')\n   res.body.should.have.keys('status', 'data', 'message')            \n   idForStores = res.body.data.id\n   done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "47b73dd2-dec1-4210-9a73-682d3fb5f67c",
+                  "parentUUID": "c448d2eb-d66d-4816-825f-bcf76cb97407",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "47b73dd2-dec1-4210-9a73-682d3fb5f67c"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1553,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "957c5f6a-89de-4315-91a0-55987a383496",
+              "title": "PUT Update a Store",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "PUT Update a Store",
+                  "fullTitle": "SalesBook API Testing PUT Update a Store PUT Update a Store",
+                  "timedOut": false,
+                  "duration": 1095,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = {\n     \"store\": {\n       \"name\": \"Comurule Ventures\",\n       \"currency\": \"USD\",\n       \"status\": \"active\",\n       \"welcomeMessage\": \"hello\",\n       \"businessDescription\": \"Comurule is the issssh\",\n       \"whatsapp\": \"2347039601940\",\n       \"phoneNumber\": \"234703960190\",\n       \"email\": \"umebuike@gmail.com\",\n       \"facebook\": \"https://facebook.com/comurule\",\n       \"twitter\": \"https://twitter.com/comurule\",\n       \"instagram\": \"https://instagram.com/comurule\"\n   }\n      }\nchai.request(baseUrl)\n  .put('/main/stores/1')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.message).to.be.equal(\"Store updated successfully.\")\n     res.body.should.have.keys('status',  'message')\n     done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "d3c4f9cb-d75a-4ce0-95e7-c059644c4823",
+                  "parentUUID": "957c5f6a-89de-4315-91a0-55987a383496",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "d3c4f9cb-d75a-4ce0-95e7-c059644c4823"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1095,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "d91135de-0c62-4e5b-be57-36732ebb834c",
+              "title": "GET All stores",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get all stores",
+                  "fullTitle": "SalesBook API Testing GET All stores Get all stores",
+                  "timedOut": false,
+                  "duration": 4425,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/stores')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.message).to.be.equal('Store list.')\n     expect(res.body.data.entities).to.be.an('array')\n     expect(res.body.data.totalCount).to.be.a('number')\n     expect(res.body.data.entities[0]).to.contain.keys('id', \"name\", 'currency', 'slug', 'status', 'contact', 'business')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "417b49a3-916c-4397-a667-09c9c78e4988",
+                  "parentUUID": "d91135de-0c62-4e5b-be57-36732ebb834c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Should return an error",
+                  "fullTitle": "SalesBook API Testing GET All stores Should return an error",
+                  "timedOut": false,
+                  "duration": 1240,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/stres')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(404)\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "91821671-78f8-451b-bf23-2b7291facf31",
+                  "parentUUID": "d91135de-0c62-4e5b-be57-36732ebb834c",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "417b49a3-916c-4397-a667-09c9c78e4988",
+                "91821671-78f8-451b-bf23-2b7291facf31"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 5665,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "7077b88f-4003-4a34-bb9d-acd1227b9cec",
+              "title": "GET A Store",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get a Store",
+                  "fullTitle": "SalesBook API Testing GET A Store Get a Store",
+                  "timedOut": false,
+                  "duration": 1168,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/stores/1')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.data).to.contain.keys('id', \"name\", 'currency', 'slug', 'status', 'contact', 'business')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "c7ebede4-92a2-45fb-a8f5-070f271e67d2",
+                  "parentUUID": "7077b88f-4003-4a34-bb9d-acd1227b9cec",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "c7ebede4-92a2-45fb-a8f5-070f271e67d2"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1168,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "6ab29979-16e4-4c18-a9ed-49b455cba54f",
+              "title": "Delete A Store",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Delete a Store",
+                  "fullTitle": "SalesBook API Testing Delete A Store Delete a Store",
+                  "timedOut": false,
+                  "duration": 2333,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .delete('/main/stores/' + idForStores)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n    expect(res).to.have.status(200)\n    expect(res.body.status).to.be.equal(true)\n    expect(res.body.message).to.be.equal(\"Store deleted successfully.\")\n    res.body.should.have.keys('status',  'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "9d62e413-4afb-4528-9a9e-9f16d5ca78e1",
+                  "parentUUID": "6ab29979-16e4-4c18-a9ed-49b455cba54f",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "9d62e413-4afb-4528-9a9e-9f16d5ca78e1"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2333,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "2f3c57fa-7cba-4b41-aeb8-a1c58fbba4db",
+              "title": "POST Create a Product",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST create a Product",
+                  "fullTitle": "SalesBook API Testing POST Create a Product POST create a Product",
+                  "timedOut": false,
+                  "duration": 1712,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = \n{\n     \"product\": {\n       \"name\": \"Product \" + Math.random(),\n       \"description\": \"A good product\",\n       \"media\": [\"download_url\"],\n       \"price\": 10.01,\n       \"currency\": \"CAD\",\n       \"isQuantityLimited\": true,\n       \"quantity\": 100,\n       \"lowStockAlert\": true,\n       \"lowStockQuantity\": 5,\n       \"storeId\": 1\n   }\n        }\nchai.request(baseUrl)\n  .post('/main/products')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n   expect(res).to.have.status(200)\n   expect(res.body.status).to.be.equal(true)\n   expect(res.body.message).to.be.equal(\"Product created successfully.\")\n   expect(res.body.data).to.be.an.instanceof(Object)\n   expect(res.body.data).to.contain.keys('id', \"name\", 'description', 'slug', 'status', 'media', 'price', 'currency', 'quantity')\n   expect(res.body.data.id).to.be.a('number')\n   res.body.should.have.keys('status', 'data', 'message')            \n   idForProducts = res.body.data.id\n   done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "0b3dfb7c-1f3b-4f01-be37-9f598d1adc70",
+                  "parentUUID": "2f3c57fa-7cba-4b41-aeb8-a1c58fbba4db",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "0b3dfb7c-1f3b-4f01-be37-9f598d1adc70"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1712,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "8fb17339-4485-4db0-a38a-418b433a90b4",
+              "title": "PUT Update a Product",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "PUT Update a Product",
+                  "fullTitle": "SalesBook API Testing PUT Update a Product PUT Update a Product",
+                  "timedOut": false,
+                  "duration": 3472,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = {\n     \"product\": {\n       \"name\": \"Product 2\",\n       \"description\": \"A good product\",\n       \"media\": [\"download_url\"],\n       \"price\": 10.01,\n       \"currency\": \"CAD\",\n       \"isQuantityLimited\": true,\n       \"quantity\": 100,\n       \"lowStockAlert\": true,\n       \"lowStockQuantity\": 5,\n       \"storeId\": 1\n   }\n      }\nchai.request(baseUrl)\n  .put('/main/products/1')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.message).to.be.equal(\"Product updated successfully.\")\n     res.body.should.have.keys('status',  'message')\n     done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "7cb99c19-689b-4db7-b338-e5c4f5810410",
+                  "parentUUID": "8fb17339-4485-4db0-a38a-418b433a90b4",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "7cb99c19-689b-4db7-b338-e5c4f5810410"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3472,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "f12e0933-a13a-44f5-9631-b3ba95c0487d",
+              "title": "GET All products",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get all products",
+                  "fullTitle": "SalesBook API Testing GET All products Get all products",
+                  "timedOut": false,
+                  "duration": 1741,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/products')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.message).to.be.equal('Product list.')\n     expect(res.body.data.entities).to.be.an('array')\n     expect(res.body.data.totalCount).to.be.a('number')\n     expect(res.body.data.entities[0]).to.contain.keys('id', \"name\", 'description', 'slug', 'status', 'media', 'price', 'currency', 'quantity')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "d95fb460-2d0d-494c-94e4-4e7a58705355",
+                  "parentUUID": "f12e0933-a13a-44f5-9631-b3ba95c0487d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Should return an error",
+                  "fullTitle": "SalesBook API Testing GET All products Should return an error",
+                  "timedOut": false,
+                  "duration": 2590,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/productss')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(404)\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "4a97e444-9e16-4d5d-ad0f-372d51170dfb",
+                  "parentUUID": "f12e0933-a13a-44f5-9631-b3ba95c0487d",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "d95fb460-2d0d-494c-94e4-4e7a58705355",
+                "4a97e444-9e16-4d5d-ad0f-372d51170dfb"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4331,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "caf18e16-5450-4c84-9896-7a244d4e951e",
+              "title": "GET A Product",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get a Product",
+                  "fullTitle": "SalesBook API Testing GET A Product Get a Product",
+                  "timedOut": false,
+                  "duration": 3219,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/products/1')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.data.lowStockQuantity).to.be.a('number')\n     expect(res.body.data.lowStockAlert).to.be.a(\"boolean\")\n     expect(res.body.data).to.contain.keys('id', \"name\", 'description', 'slug', 'status', 'media', 'price', 'currency', 'quantity')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "e7b53e33-c8b6-44f5-b576-c647d0fec04d",
+                  "parentUUID": "caf18e16-5450-4c84-9896-7a244d4e951e",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e7b53e33-c8b6-44f5-b576-c647d0fec04d"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3219,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "139c1051-4278-45a0-8bc7-f8a4a6c0543a",
+              "title": "Delete A Product",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Delete a Product",
+                  "fullTitle": "SalesBook API Testing Delete A Product Delete a Product",
+                  "timedOut": false,
+                  "duration": 1060,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .delete('/main/products/' + idForProducts)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n    expect(res).to.have.status(200)\n    expect(res.body.status).to.be.equal(true)\n    expect(res.body.message).to.be.equal(\"Product deleted successfully.\")\n    res.body.should.have.keys('status',  'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "fe97c1a6-1f0c-4c99-be76-9faaa0a71499",
+                  "parentUUID": "139c1051-4278-45a0-8bc7-f8a4a6c0543a",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "fe97c1a6-1f0c-4c99-be76-9faaa0a71499"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1060,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "7543844d-fa79-4157-98ab-8c11673f9379",
+              "title": "POST Create an Order",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "POST create an Order",
+                  "fullTitle": "SalesBook API Testing POST Create an Order POST create an Order",
+                  "timedOut": false,
+                  "duration": 1157,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = \n{\n     \"orders\": [{\n       \"email\": \"umebuike@gmail.com\",\n       \"firstName\": \"Chibuike\" + Math.random(),\n       \"lastName\": \"Chibuike\",\n       \"amount\": 10.01,\n       \"quantity\": 1,\n       \"storeId\": 1,\n       \"productId\": 1,\n       \"businessId\": 179\n   },{\n       \"email\": \"umebuike@gmail.com\",\n       \"firstName\": \"Chibuike\" + Math.random(),\n       \"lastName\": \"Chibuike\",\n       \"amount\": 20.02,\n       \"quantity\": 2,\n       \"storeId\": 1,\n       \"productId\": 1,\n       \"businessId\": 179\n   }]\n        }\nchai.request(baseUrl)\n  .post('/main/orders')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n   expect(res).to.have.status(200)\n   expect(res.body.status).to.be.equal(true)\n   expect(res.body.message).to.be.equal(\"All Entries are successful\")\n   expect(res.body.data).to.be.an.instanceof(Array)\n   expect(res.body.data[0]).to.have.keys('ref', 'status', 'message')\n   res.body.should.have.keys('status', 'data', 'message')            \n   done()\n  }).catch((err) => done(err))",
+                  "err": {
+                    "message": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 200 but got 404",
+                    "estack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 200 but got 404\n    at C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js:1232:33\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)",
+                    "diff": "- 404\n+ 200\n"
+                  },
+                  "uuid": "22d640fa-ef30-477d-adeb-2c7c1510ecf9",
+                  "parentUUID": "7543844d-fa79-4157-98ab-8c11673f9379",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "22d640fa-ef30-477d-adeb-2c7c1510ecf9"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 1157,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "6a145e09-88c4-4ae4-ac23-b660c8512e6c",
+              "title": "PUT Update a Order",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "PUT Update a Order",
+                  "fullTitle": "SalesBook API Testing PUT Update a Order PUT Update a Order",
+                  "timedOut": false,
+                  "duration": 1504,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const message_body = {\n     \"order\": {\n       \"email\": \"umebuike@gmail.com\",\n       \"firstName\": \"Chibuike\",\n       \"lastName\": \"Chibuike\",\n       \"status\": \"paid\"\n   }\n      }\nchai.request(baseUrl)\n  .put('/main/orders/1')\n  .send(message_body)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.message).to.be.equal(\"Order updated successfully.\")\n     res.body.should.have.keys('status',  'message')\n     done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "4bccdf16-c42e-4fca-b458-31e4df9b5e40",
+                  "parentUUID": "6a145e09-88c4-4ae4-ac23-b660c8512e6c",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "4bccdf16-c42e-4fca-b458-31e4df9b5e40"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1504,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "d4931881-7e5b-4ea1-9bf4-2bfe004df248",
+              "title": "GET All orders",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get all orders",
+                  "fullTitle": "SalesBook API Testing GET All orders Get all orders",
+                  "timedOut": false,
+                  "duration": 2051,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/orders')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.message).to.be.equal('Order list.')\n     expect(res.body.data.entities).to.be.an('array')\n     expect(res.body.data.totalCount).to.be.a('number')\n     expect(res.body.data.entities[0]).to.contain.keys('id', 'email', 'firstName', 'lastName', 'amount', 'currency')\n    res.body.should.have.keys('status', 'data', 'message')\n    array = res.body.data.entities\n    idForOrders = res.body.data.entities[array.length-1].id\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "f9e7f3b2-c4fd-4a20-bb3b-8d6852a278b2",
+                  "parentUUID": "d4931881-7e5b-4ea1-9bf4-2bfe004df248",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Should return an error",
+                  "fullTitle": "SalesBook API Testing GET All orders Should return an error",
+                  "timedOut": false,
+                  "duration": 1500,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/ordes')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(404)\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "14f564c3-06e7-481f-85e7-bf009ec084ba",
+                  "parentUUID": "d4931881-7e5b-4ea1-9bf4-2bfe004df248",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "f9e7f3b2-c4fd-4a20-bb3b-8d6852a278b2",
+                "14f564c3-06e7-481f-85e7-bf009ec084ba"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3551,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "1f6dd092-7b36-4a39-88bd-977480240a74",
+              "title": "GET An Order",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Get an Order",
+                  "fullTitle": "SalesBook API Testing GET An Order Get an Order",
+                  "timedOut": false,
+                  "duration": 998,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .get('/main/orders/1')\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n     expect(res).to.have.status(200)\n     expect(res.body.status).to.be.equal(true)\n     expect(res.body.data).to.be.an.instanceof(Object)\n     expect(res.body.data).to.contain.keys('id', 'email', 'firstName', 'lastName', 'amount', 'currency', 'status')\n    res.body.should.have.keys('status', 'data', 'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "a7afe8f8-47ae-4883-b93a-482bc6783478",
+                  "parentUUID": "1f6dd092-7b36-4a39-88bd-977480240a74",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "a7afe8f8-47ae-4883-b93a-482bc6783478"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 998,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "8e0d3383-66af-402d-afcb-b85bbcc3a1ca",
+              "title": "Delete An Order",
+              "fullFile": "C:\\Users\\MILITUS\\Documents\\npm-test-salesbook-api\\test\\tests.js",
+              "file": "\\test\\tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Delete an Order",
+                  "fullTitle": "SalesBook API Testing Delete An Order Delete an Order",
+                  "timedOut": false,
+                  "duration": 1218,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(baseUrl)\n  .delete('/main/orders/' + idForOrders)\n  .set({ \"Authorization\": `Bearer ${token}` })\n  .then((res) => {\n    expect(res).to.have.status(200)\n    expect(res.body.status).to.be.equal(true)\n    expect(res.body.message).to.be.equal(\"Order deleted successfully.\")\n    res.body.should.have.keys('status',  'message')\n    done()\n  }).catch((err) => done(err))",
+                  "err": {},
+                  "uuid": "d6ae0cb3-eef8-4118-9bb7-2fec3a90ba99",
+                  "parentUUID": "8e0d3383-66af-402d-afcb-b85bbcc3a1ca",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "d6ae0cb3-eef8-4118-9bb7-2fec3a90ba99"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1218,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 30000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "8.3.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.2.0"
+    }
+  }
+}
